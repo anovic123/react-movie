@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  &Logo {
+    font-size: 29px;
+    font-weight: 600;
+  }
+  &Author {
+    font-size: 21px;
+    > a {
+      color: rgb(245, 32, 32);
+      transition: all 0.3s ease 0s;
+      &:hover {
+        color: rgb(202, 24, 24);
+        text-decoration: underline;
+      }
+    }
+  }
+}
