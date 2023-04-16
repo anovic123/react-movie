@@ -10,6 +10,7 @@ import {
   getDocumentaryMovies,
   getHorrorMovies,
   getNetflixMovies,
+  getRomanceMovies,
 } from '../../store/thunks/movies';
 
 import s from './home.module.scss';
@@ -19,15 +20,25 @@ interface HomePageProps {}
 export const HomePage: FC<HomePageProps> = ({}) => {
   const dispatch = useAppDispatch();
 
-  const { horrorMovies, comedyMovies, documentaryMovies, netflixMovies } = useAppSelector(
-    (state) => state.movies,
-  );
+  const {
+    horrorMovies,
+    comedyMovies,
+    documentaryMovies,
+    netflixMovies,
+    romanceMovies,
+    horrorMoviesLoading,
+    comedyMoviesLoading,
+    documentaryMoviesLoading,
+    netflixMoviesLoading,
+    romanceMoviesLoading,
+  } = useAppSelector((state) => state.movies);
 
   useEffect(() => {
     dispatch(getHorrorMovies());
     dispatch(getComedyMovies());
     dispatch(getDocumentaryMovies());
     dispatch(getNetflixMovies());
+    dispatch(getRomanceMovies());
   }, []);
 
   return (
@@ -35,10 +46,11 @@ export const HomePage: FC<HomePageProps> = ({}) => {
       <div className={s.homeSlider}>
         <Banner />
       </div>
-      <MovieSlider title="Horror" data={horrorMovies} />
-      <MovieSlider title="Comedy" data={comedyMovies} />
-      <MovieSlider title="Documentary" data={documentaryMovies} />
-      <MovieSlider title="Netflix Original" data={netflixMovies} />
+      <MovieSlider title="Horror" data={horrorMovies} loading={horrorMoviesLoading} />
+      <MovieSlider title="Netflix Original" data={netflixMovies} loading={comedyMoviesLoading} />
+      <MovieSlider title="Comedy" data={comedyMovies} loading={documentaryMoviesLoading} />
+      <MovieSlider title="Romance" data={romanceMovies} loading={netflixMoviesLoading} />
+      <MovieSlider title="Documentary" data={documentaryMovies} loading={romanceMoviesLoading} />
     </section>
   );
 };

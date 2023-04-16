@@ -5,7 +5,7 @@ export const getMovies = createAsyncThunk(
   'get-movies',
   async (category: string, { rejectWithValue }) => {
     try {
-      const response = await api.get(`movie/${category}?api_key=0192efb618f2132abdb27537670657d7`);
+      const response = await api.get(`movie/${category}?api_key=${import.meta.env.VITE_API_KEY}`);
       return response.data.results;
     } catch (error: any) {
       if (error.response && error.response.data.message) {
@@ -59,6 +59,19 @@ export const getDocumentaryMovies = createAsyncThunk('get-documentary', async (_
 export const getNetflixMovies = createAsyncThunk('get-netflix', async (_, { rejectWithValue }) => {
   try {
     const response = await api.get(`/discover/tv?api_key=${import.meta.env.VITE_API_KEY}&with_networks=213`)
+    return response.data.results;
+  } catch (error: any) {
+    if (error.response && error.response.data.message) {
+      return rejectWithValue(error.response.data.message);
+    } else {
+      return rejectWithValue(error.message);
+    }
+  }
+})
+
+export const getRomanceMovies = createAsyncThunk('get-romance', async (_, { rejectWithValue }) => {
+  try {
+    const response = await api.get(`/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&with_genres=28`)
     return response.data.results;
   } catch (error: any) {
     if (error.response && error.response.data.message) {

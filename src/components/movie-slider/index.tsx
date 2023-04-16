@@ -4,18 +4,32 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import s from './movie-slider.module.scss';
 import { MovieTypeResult } from '../../common/types/movies';
+import { Skeleton } from '../skeleton';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 interface MovieSliderProps {
   title: string;
   data: MovieTypeResult[];
+  loading: boolean;
 }
 
-export const MovieSlider: FC<MovieSliderProps> = ({ title, data }) => {
+export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
+  const movies = data.map((movie) => (
+    <SwiperSlide className={s.movieSliderSlide}>
+      <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+    </SwiperSlide>
+  ));
+
+  const skeletons = [...new Array(8)].map((_, index) => (
+    <SwiperSlide className={s.movieSliderSlide}>
+      <Skeleton key={index} />
+    </SwiperSlide>
+  ));
+
   return (
     <>
-      <h2 className={s.movieSliderTitle}>{title}</h2>
+      <h2 className={s.movieSliderTitle}>{!loading && title}</h2>
       <Swiper
         navigation={true}
         grabCursor={false}
@@ -41,12 +55,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data }) => {
           },
         }}
       >
-        {data &&
-          data.map((movie) => (
-            <SwiperSlide className={s.movieSliderSlide}>
-              <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
-            </SwiperSlide>
-          ))}
+        {loading ? skeletons : movies}
       </Swiper>
     </>
   );
