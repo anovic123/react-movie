@@ -1,7 +1,15 @@
-import { FC } from 'react';
+import { FC, useState, useEffect } from 'react';
+import { tmbdbApi } from '../../api/tmdbApi';
+import { Banner } from '../../components/Banner';
+
+import s from './home.module.scss';
 
 interface HomePageProps {}
 
 export const HomePage: FC<HomePageProps> = ({}) => {
-  return <div>HomePage</div>;
+  return (
+    <section className={s.home}>
+      <Banner />
+    </section>
+  );
 };

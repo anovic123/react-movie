@@ -8,10 +8,12 @@ interface FooterProps {}
 export const Footer: FC<FooterProps> = ({}) => {
   return (
     <footer className={s.footer}>
-      <div className={s.footerLogo}>React Movies</div>
+      <div className={s.footerContainer}>
+        <div className={s.footerLogo}>React Movies</div>
 
-      <div className={s.footerAuthor}>
-        Developed by <Link to="https://github.com/anovic123">anovic</Link>
+        <div className={s.footerAuthor}>
+          Developed by <Link to="https://github.com/anovic123">anovic</Link>
+        </div>
       </div>
     </footer>
   );

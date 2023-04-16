@@ -10,7 +10,7 @@ interface HeaderProps {}
 export const Header: FC<HeaderProps> = ({}) => {
   const headerRef = useRef<HTMLDivElement>(null);
 
-  const [activeLink, setActiveLink] = useState(0);
+  const [activeLink, setActiveLink] = useState<number>(157);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,11 +36,11 @@ export const Header: FC<HeaderProps> = ({}) => {
         </Link>
         <ul className={s.headerNav}>
           {navMenu.map((el) => (
-            <li key={el.id}>
+            <li key={el.id} className={s.headerNavLi}>
               <Link
                 to={el.path}
                 onClick={() => setActiveLink(el.id)}
-                className={`${el.id === activeLink ? 'activeLink' : ''}`}
+                className={`${el.id === activeLink ? s.activeLink : ''}`}
               >
                 {el.title}
               </Link>

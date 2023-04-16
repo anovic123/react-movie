@@ -1,8 +1,15 @@
+@use '../../styles/' as *;
+
 .footer {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
+  &Container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1350px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
   &Logo {
     font-size: 29px;
     font-weight: 600;
