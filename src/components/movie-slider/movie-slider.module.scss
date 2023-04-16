@@ -1,0 +1,27 @@
+.movieSlider {
+  margin-bottom: 20px;
+
+  &Title {
+    padding: 0 10px;
+    font-size: 50px;
+    font-weight: 600;
+    margin-bottom: 30px;
+  }
+  &Slide {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 450ms !important;
+    &:hover {
+      transform: scale(0.98);
+    }
+    > img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+      border-radius: 5px;
+    }
+  }
+}

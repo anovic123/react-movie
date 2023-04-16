@@ -22,3 +22,48 @@ footer {
     color: $red;
   }
 }
+
+.swiper-pagination {
+  top: 0 !important;
+  height: 1rem !important;
+  text-align: right !important;
+}
+
+.swiper-pagination-bullet {
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  width: 97.5% !important;
+  height: 1px !important;
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0 !important;
+  left: 0 !important;
+}
+
+div.swiper-button-prev,
+div.swiper-button-next {
+  transition: all 450ms !important;
+  color: rgb(255, 255, 255);
+
+  &:hover {
+    transform: scale(1.2) !important;
+    transition: all 450ms !important;
+  }
+}
+
+.swiper-slide {
+  transition: all 450ms !important;
+}
+
+.swiper-wrapper:hover .swiper-slide {
+  z-index: 100;
+  opacity: 0.3 !important;
+
+  &:hover {
+    opacity: 1 !important;
+  }
+}
