@@ -25,7 +25,6 @@ export const Banner: FC<BannerProps> = ({}) => {
   }, []);
 
   const randomMovie = moviesData[randomMovieIndex];
-  console.log('🚀 ~ file: index.tsx:25 ~ randomMovie:', randomMovie);
 
   return (
     <div className={s.banner}>
@@ -33,7 +32,7 @@ export const Banner: FC<BannerProps> = ({}) => {
         <div className={s.bannerTop}>
           <img
             src={`https://image.tmdb.org/t/p/original/${
-              randomMovie?.backdrop_path || moviesData?.poster_path
+              randomMovie?.backdrop_path
             }`}
           />
         </div>

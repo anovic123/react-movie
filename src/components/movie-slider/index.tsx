@@ -3,12 +3,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import s from './movie-slider.module.scss';
+import { MovieTypeResult } from '../../common/types/movies';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 interface MovieSliderProps {
   title: string;
-  data: any;
+  data: MovieTypeResult[];
 }
 
 export const MovieSlider: FC<MovieSliderProps> = ({ title, data }) => {
@@ -41,7 +42,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data }) => {
         }}
       >
         {data &&
-          data.map((movie: any) => (
+          data.map((movie) => (
             <SwiperSlide className={s.movieSliderSlide}>
               <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
             </SwiperSlide>

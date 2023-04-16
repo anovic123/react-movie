@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { initialStateType } from '../../../common/types/movies';
 import { getMovies, getHorrorMovies, getComedyMovies, getDocumentaryMovies, getNetflixMovies } from '../../thunks/movies';
 
-const initialState: any = {
+const initialState: initialStateType = {
   moviesData: [],
   horrorMovies: [],
   comedyMovies: [],
