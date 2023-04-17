@@ -6,25 +6,24 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  padding: 10px 0;
+  padding: 0.625rem 0;
+  height: 4.0625rem;
 
   &.activeHeader {
     background-color: $header-color !important;
   }
   &Container {
-    @include flex(center, space-between, 10px);
-    max-width: 1350px;
-    padding: 0 10px;
-    margin: 0 auto;
+    @include flex(center, space-between, 0.625rem);
+    @include container;
   }
   &Logo {
-    font-size: 30px;
+    font-size: 1.875rem;
   }
   &Nav {
-    @include flex(center, center, 20px);
+    @include flex(center, center, 1.25rem);
     &Li {
       position: relative;
-      font-size: 21px;
+      font-size: 1.3125rem;
 
       > a {
         &::after {
@@ -34,7 +33,7 @@
           left: 50%;
           transform: translateX(-50%);
           width: 0;
-          height: 2px;
+          height: 0.125rem;
           transition: width 0.5s ease 0s;
           background-color: $red;
         }

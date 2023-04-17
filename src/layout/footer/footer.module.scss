@@ -2,13 +2,9 @@
 
 .footer {
   &Container {
-    display: flex;
-    justify-content: space-between;
+    @include flex(center, space-between, 20px);
     flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1350px;
-    padding: 0 10px;
-    margin: 0 auto;
+    @include container;
   }
   &Logo {
     font-size: 29px;

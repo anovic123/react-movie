@@ -21,7 +21,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
     </SwiperSlide>
   ));
 
-  const skeletons = [...new Array(8)].map((_, index) => (
+  const skeletons = [...new Array(6)].map((_, index) => (
     <SwiperSlide className={s.movieSliderSlide}>
       <Skeleton key={index} />
     </SwiperSlide>

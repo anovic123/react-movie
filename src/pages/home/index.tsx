@@ -4,11 +4,13 @@ import { Banner } from '../../components/banner';
 import { MovieSlider } from '../../components/movie-slider';
 
 import { useAppDispatch, useAppSelector } from '../../hooks';
+import { setRandomMovie } from '../../store/slice/movies';
 
 import {
   getComedyMovies,
   getDocumentaryMovies,
   getHorrorMovies,
+  getMovies,
   getNetflixMovies,
   getRomanceMovies,
 } from '../../store/thunks/movies';
@@ -21,6 +23,8 @@ export const HomePage: FC<HomePageProps> = ({}) => {
   const dispatch = useAppDispatch();
 
   const {
+    moviesData,
+    randomMovieIndex,
     horrorMovies,
     comedyMovies,
     documentaryMovies,
@@ -34,6 +38,9 @@ export const HomePage: FC<HomePageProps> = ({}) => {
   } = useAppSelector((state) => state.movies);
 
   useEffect(() => {
+    dispatch(getMovies('popular')).then(() => {
+      dispatch(setRandomMovie());
+    });
     dispatch(getHorrorMovies());
     dispatch(getComedyMovies());
     dispatch(getDocumentaryMovies());
@@ -41,10 +48,13 @@ export const HomePage: FC<HomePageProps> = ({}) => {
     dispatch(getRomanceMovies());
   }, []);
 
+  const randomMovie = moviesData[randomMovieIndex];
+
+
   return (
     <section className={s.home}>
       <div className={s.homeSlider}>
-        <Banner />
+        <Banner randomMovie={randomMovie} />
       </div>
       <MovieSlider title="Horror" data={horrorMovies} loading={horrorMoviesLoading} />
       <MovieSlider title="Netflix Original" data={netflixMovies} loading={comedyMoviesLoading} />
