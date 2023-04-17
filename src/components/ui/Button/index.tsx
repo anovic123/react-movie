@@ -46,7 +46,7 @@ export const Button: FC<ButtonProps> = ({
   );
 
   return (
-    <button className={className} type="button" {...props}>
+    <button className={className} onClick={onClick} type="button" {...props}>
       {!!startIcon && <>{startIcon}</>}
       {children}
       {!!endIcon && <>{endIcon}</>}

@@ -1,6 +1,7 @@
 import { FC, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { v1 } from 'uuid';
 
 import s from './movie-slider.module.scss';
 import { MovieTypeResult } from '../../common/types/movies';
@@ -16,16 +17,12 @@ interface MovieSliderProps {
 
 export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
   const movies = data.map((movie) => (
-    <SwiperSlide className={s.movieSliderSlide}>
+    <SwiperSlide key={v1()} className={s.movieSliderSlide}>
       <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
     </SwiperSlide>
   ));
 
-  const skeletons = [...new Array(6)].map((_, index) => (
-    <SwiperSlide className={s.movieSliderSlide}>
-      <Skeleton key={index} />
-    </SwiperSlide>
-  ));
+  const skeletons = [...new Array(6)].map((_) => <Skeleton key={v1()} />);
 
   return (
     <>
@@ -55,7 +52,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
           },
         }}
       >
-        {loading ? skeletons : movies}
+        {loading ? <SwiperSlide className={s.movieSliderSlide}>{skeletons}</SwiperSlide> : movies}
       </Swiper>
     </>
   );
