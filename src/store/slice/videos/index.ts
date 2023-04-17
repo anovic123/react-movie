@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { VideosSliceType } from "../../../common/types/videos"
 import { getVideos } from "../../thunks/videos"
 
-const initialState: any = {
+const initialState: VideosSliceType = {
   videosData: [],
 }
 

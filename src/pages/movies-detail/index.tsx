@@ -30,7 +30,7 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
           className={s.detailsImage}
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/original/${
-              detailsData.backdrop_path || detailsData.poster_path
+              detailsData?.backdrop_path || detailsData?.poster_path
             })`,
           }}
         ></div>
@@ -39,24 +39,24 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
         <div className={s.detailsPoster}>
           <img
             className={s.detailsPosterImg}
-            src={`https://image.tmdb.org/t/p/original/${detailsData.poster_path}`}
-            alt={detailsData.title}
+            src={`https://image.tmdb.org/t/p/original/${detailsData?.poster_path}`}
+            alt={detailsData?.title}
           />
         </div>
         <div className={s.detailsContent}>
-          <h1 className={s.detailsContentTitle}>{detailsData.title}</h1>
-          <span className={s.detailsContentTagline}>
-            {detailsData.tagline}
-          </span>
-          <p className={s.detailsContentDescription}>{detailsData.overview}</p>
+          <h1 className={s.detailsContentTitle}>{detailsData?.title}</h1>
+          <span className={s.detailsContentTagline}>{detailsData?.tagline}</span>
+          <p className={s.detailsContentDescription}>{detailsData?.overview}</p>
           <div className={s.detailsContentContainer}>
-            <div className={s.detailsContentDuration}>{convertDuration(detailsData.runtime)}</div>
+            <div className={s.detailsContentDuration}>
+              {convertDuration(detailsData?.runtime || 0)}
+            </div>
             <div
               className={s.detailsContentRating}
-              style={{ color: detailsData.vote_average > 6 ? 'green' : 'red' }}
+              style={{ color: detailsData && detailsData?.vote_average > 6 ? 'green' : 'red' }}
             >
               <AiFillStar />
-              {detailsData.vote_average.toFixed(2)}
+              {detailsData?.vote_average?.toFixed(2)}
             </div>
           </div>
         </div>

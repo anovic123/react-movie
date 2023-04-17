@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react';
-
 import { AiFillPlayCircle, AiFillInfoCircle } from 'react-icons/ai';
+
 import { useAppDispatch, useAppSelector } from '../../hooks';
+
 import { setRandomMovie } from '../../store/slice/movies';
 import { getMovies } from '../../store/thunks/movies';
-
 import { getVideos } from '../../store/thunks/videos';
 
 import { ModalBanner } from '../modal-banner';

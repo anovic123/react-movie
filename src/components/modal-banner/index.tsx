@@ -1,12 +1,13 @@
 import { FC, useEffect } from 'react';
 import ReactPlayer from 'react-player';
+import { VideosType } from '../../common/types/videos';
 
 import s from './modal.module.scss';
 
 interface ModalBannerProps {
-  data: any;
+  data: VideosType;
   activeModal: boolean;
-  setActiveModal: any;
+  setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const ModalBanner: FC<ModalBannerProps> = ({ data, activeModal, setActiveModal }) => {
