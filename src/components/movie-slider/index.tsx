@@ -6,6 +6,7 @@ import { v1 } from 'uuid';
 import s from './movie-slider.module.scss';
 import { MovieTypeResult } from '../../common/types/movies';
 import { Skeleton } from '../skeleton';
+import { useNavigate } from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -16,9 +17,14 @@ interface MovieSliderProps {
 }
 
 export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
+  const navigate = useNavigate();
+
   const movies = data.map((movie) => (
     <SwiperSlide key={v1()} className={s.movieSliderSlide}>
-      <img src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} />
+      <img
+        onClick={() => navigate(`/movies/${movie.id}`)}
+        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+      />
     </SwiperSlide>
   ));
 

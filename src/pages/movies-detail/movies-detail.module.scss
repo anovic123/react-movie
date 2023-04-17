@@ -1,0 +1,68 @@
+@use '../../styles/' as *;
+
+.details {
+  &ImageContainer {
+    position: relative;
+    z-index: 0;
+    height: 450px;
+  }
+  &Image {
+    position: absolute;
+    height: 450px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &Container {
+    @include container;
+    z-index: 5;
+    position: relative;
+    background-color: #060d17;
+    margin: -95px auto 0;
+    padding: 25px 25px 0;
+    width: 100%;
+    min-height: 800px;
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    gap: 20px;
+  }
+  &Poster {
+    &Img {
+      max-width: 600px;
+      height: 500px;
+    }
+  }
+  &Content {
+    padding: 16px 32px 64px 0;
+
+    &Title {
+      font-size: 59px;
+      font-weight: 500;
+      line-height: 30px;
+      margin-bottom: 26px;
+    }
+    &Tagline {
+      font-size: 24px;
+      color: red;
+    }
+    &Description {
+      font-size: 24px;
+      margin: 20px 0;
+    }
+    &Container {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    &Duration {
+      font-size: 28px;
+    }
+    &Rating {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 28px;
+    }
+  }
+}
