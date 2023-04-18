@@ -5,9 +5,11 @@ import { AiFillStar } from 'react-icons/ai';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import { getDetails } from '../../store/thunks/details';
-import { convertDuration } from '../../utils/converDuration';
 
 import { Casts } from '../../components/casts';
+
+import { imageUrl } from '../../utils/constants';
+import { convertDuration } from '../../utils/converDuration';
 
 import s from './movies-detail.module.scss';
 
@@ -19,7 +21,6 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
   const dispatch = useAppDispatch();
 
   const { detailsData } = useAppSelector((state) => state.details);
-  // console.log('🚀 ~ file: index.tsx:14 ~ detailsData:', detailsData);
 
   useEffect(() => {
     if (!id) {
@@ -34,7 +35,7 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
         <div
           className={s.detailsImage}
           style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original/${
+            backgroundImage: `url(${imageUrl}${
               detailsData?.backdrop_path || detailsData?.poster_path
             })`,
           }}
@@ -45,7 +46,7 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
         <div className={s.detailsPoster}>
           <img
             className={s.detailsPosterImg}
-            src={`https://image.tmdb.org/t/p/original/${detailsData?.poster_path}`}
+            src={`${imageUrl}${detailsData?.poster_path}`}
             alt={detailsData?.title}
           />
         </div>

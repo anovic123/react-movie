@@ -1,36 +1,35 @@
 .cast {
-  margin-top: 50px;
+  margin-top: 3.125rem;
   &Heading {
-    font-size: 30px;
-    margin-bottom: 10px;
+    font-size: 1.875rem;
+    margin-bottom: .625rem;
   }
   &List {
     display: flex;
-    column-gap: 30px;
+    column-gap: 1.875rem;
     flex-wrap: wrap;
   }
   &Item {
-    // width: calc(100% / 4 - 10px);
     text-align: center;
     &Image {
       border-radius: 50%;
-      width: 100px;
-      height: 100px;
+      width: 6.25rem;
+      height: 6.25rem;
       overflow: hidden;
-      margin: 10px auto;
+      margin: .625rem auto;
       background-position: top center;
       background-size: cover;
       background-repeat: no-repeat;
     }
     &Name {
-      font-size: 20px;
+      font-size: 1.25rem;
       font-weight: 700;
       text-align: center;
     }
     &Character {
-      margin-top: 5px;
+      margin-top: .3125rem;
       text-align: center;
-      font-size: 17px;
+      font-size: 1.0625rem;
     }
   }
 }

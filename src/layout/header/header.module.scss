@@ -9,7 +9,7 @@
   padding: 0.625rem 0;
   height: 4.0925rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 48rem) {
     background-color: $header-color !important;
   }
 
@@ -40,7 +40,7 @@
           height: 0.125rem;
           transition: width 0.5s ease 0s;
           background-color: $red;
-          @media (max-width: 768px) {
+          @media (max-width: 48rem) {
             text-align: center;
           }
         }
@@ -56,8 +56,8 @@
 
 .burgerMenu {
   position: relative;
-  width: 64px;
-  height: 30px;
+  width: 4rem;
+  height: 1.875rem;
   cursor: pointer;
   display: inline-block;
   background-color: transparent;
@@ -67,9 +67,9 @@
   > span {
     background-color: red;
     position: absolute;
-    border-radius: 2px;
-    width: 50px;
-    height: 3px;
+    border-radius: .125rem;
+    width: 3.125rem;
+    height: .1875rem;
     text-decoration: 500ms;
     transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
     &:nth-child(1) {
@@ -77,7 +77,7 @@
       left: 0;
     }
     &:nth-child(2) {
-      top: 13px;
+      top: .8125rem;
       left: 0;
       opacity: 1;
     }
@@ -90,29 +90,29 @@
     > span {
       &:nth-child(1) {
         transform: rotate(45deg);
-        top: 13px;
+        top: .8125rem;
       }
       &:nth-child(2) {
         opacity: 0;
       }
       &:nth-child(3) {
         transform: rotate(-45deg);
-        top: 13px;
+        top: .8125rem;
       }
     }
   }
   &List {
     position: absolute;
-    top: 54px;
+    top: 3.375rem;
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
     height: 100vh;
     opacity: 0;
     visibility: hidden;
-    padding: 50px 0;
+    padding: 3.125rem 0;
     background: rgba(21, 36, 72, 1);
-    backdrop-filter: blur(60px);
+    backdrop-filter: blur(3.75rem);
     transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
 
     &Open {
@@ -127,7 +127,7 @@
         position: relative;
         text-decoration: none;
         font-size: 2em;
-        padding: 5px 20px;
+        padding: .3125rem 1.25rem;
         display: inline-flex;
         font-weight: 700;
       }

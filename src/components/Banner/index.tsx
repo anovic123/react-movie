@@ -8,6 +8,8 @@ import { setRandomMovie } from '../../store/slice/movies';
 import { getMovies } from '../../store/thunks/movies';
 import { getVideos } from '../../store/thunks/videos';
 
+import { imageUrl } from '../../utils/constants';
+
 import { ModalBanner } from '../modal-banner';
 
 import { Button } from '../ui/Button';
@@ -41,7 +43,7 @@ export const Banner: FC<BannerProps> = ({}) => {
       <div
         className={s.banner}
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original/${randomMovie?.backdrop_path})`,
+          backgroundImage: `url(${imageUrl}${randomMovie?.backdrop_path})`,
         }}
       >
         <div className={s.bannerContainer}>

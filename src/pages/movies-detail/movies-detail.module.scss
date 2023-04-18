@@ -4,11 +4,11 @@
   &ImageContainer {
     position: relative;
     z-index: 0;
-    height: 450px;
+    height: 28.125rem;
   }
   &Image {
     position: absolute;
-    height: 450px;
+    height: 28.125rem;
     width: 100%;
     background-position: center;
     background-size: cover;
@@ -25,7 +25,7 @@
         #060d17,
         #060d17
       );
-      @media (max-width: 768px) {
+      @media (max-width: 48rem) {
         height: 2rem;
       }
     }
@@ -35,79 +35,79 @@
     z-index: 5;
     position: relative;
     background-color: #060d17;
-    margin: -95px auto 0;
-    padding: 25px 25px 0;
+    margin: -5.9375rem auto 0;
+    padding: 1.5625rem 1.5625rem 0;
     width: 100%;
-    min-height: 800px;
-    border-radius: 20px 20px 0 0;
+    min-height: 50rem;
+    border-radius: 1.25rem 1.25rem 0 0;
     display: flex;
-    gap: 20px;
-    @media (max-width: 1024px) {
+    gap: 1.25rem;
+    @media (max-width: 64rem) {
       flex-direction: column;
     }
   }
   &Poster {
     &Img {
-      max-width: 600px;
-      height: 700px;
-      @media (max-width: 768px) {
-        max-width: 420px;
-        height: 500px;
+      max-width: 37.5rem;
+      height: 43.75rem;
+      @media (max-width: 48rem) {
+        max-width: 26.25rem;
+        height: 31.25rem;
       }
-      @media (max-width: 425px) {
-        max-width: 290px;
-        height: 400px;
+      @media (max-width: 26.5625rem) {
+        max-width: 18.125rem;
+        height: 25rem;
       }
     }
   }
   &Content {
-    padding: 16px 32px 64px 0;
+    padding: 1rem 2rem 4rem 0;
 
     &Title {
-      font-size: 59px;
+      font-size: 3.6875rem;
       font-weight: 500;
-      line-height: 30px;
-      margin-bottom: 26px;
-      @media (max-width: 768px) {
-        font-size: 42px;
+      line-height: 1.875rem;
+      margin-bottom: 1.625rem;
+      @media (max-width: 48rem) {
+        font-size: 2.625rem;
       }
     }
     &Tagline {
-      font-size: 24px;
+      font-size: 1.5rem;
       color: red;
     }
     &Description {
-      font-size: 24px;
-      margin: 20px 0;
-      @media (max-width: 768px) {
-        font-size: 20px;
+      font-size: 1.5rem;
+      margin: 1.25rem 0;
+      @media (max-width: 48rem) {
+        font-size: 1.25rem;
       }
     }
     &Container {
       display: flex;
       align-items: center;
-      gap: 20px;
-      margin-bottom: 20px;
+      gap: 1.25rem;
+      margin-bottom: 1.25rem;
     }
     &Duration {
-      font-size: 28px;
+      font-size: 1.75rem;
     }
     &Rating {
       display: flex;
       align-items: center;
-      gap: 5px;
-      font-size: 28px;
+      gap: .3125rem;
+      font-size: 1.75rem;
     }
     &Genre {
-      border: 1px solid #848787;
-      font-size: 19px;
-      padding: 5px 10px;
-      border-radius: 6px;
+      border: .0625rem solid #848787;
+      font-size: 1.1875rem;
+      padding: .3125rem .625rem;
+      border-radius: .375rem;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.3s ease 0s;
       &:hover {
-        border: 1px solid rgb(255, 0, 0);
+        border: .0625rem solid rgb(255, 0, 0);
       }
     }
   }

@@ -13,7 +13,7 @@ main {
 }
 
 footer {
-  padding: 10px 0;
+  padding: .625rem 0;
   flex-shrink: 0;
 }
 
@@ -36,7 +36,7 @@ footer {
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
   width: 97.5% !important;
-  height: 1px !important;
+  height: .0625rem !important;
 }
 
 .swiper-container-horizontal > .swiper-pagination-bullets {

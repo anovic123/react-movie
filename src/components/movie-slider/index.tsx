@@ -1,12 +1,16 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { v1 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { v1 } from 'uuid';
+import { useNavigate } from 'react-router-dom';
+
+import { MovieTypeResult } from '../../common/types/movies';
+
+import { Skeleton } from '../skeleton';
+
+import { imageUrl } from '../../utils/constants';
 
 import s from './movie-slider.module.scss';
-import { MovieTypeResult } from '../../common/types/movies';
-import { Skeleton } from '../skeleton';
-import { useNavigate } from 'react-router-dom';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -23,7 +27,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
     <SwiperSlide key={v1()} className={s.movieSliderSlide}>
       <img
         onClick={() => navigate(`/movies/${movie.id}`)}
-        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`}
+        src={`${imageUrl}${movie.poster_path}`}
       />
     </SwiperSlide>
   ));

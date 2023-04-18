@@ -18,7 +18,7 @@
       font-size: 3.1875rem;
       font-weight: 700;
       margin-bottom: 0.3125rem;
-      @media (max-width: 768px) {
+      @media (max-width: 48rem) {
         font-size: 1.875rem;
       }
     }
@@ -27,7 +27,7 @@
       font-size: 1.5rem;
       text-shadow: 0rem 0.0625rem 0.125rem rgb(30 29 39 / 19%),
         0.0625rem 0.125rem 0.25rem rgb(54 64 147 / 18%);
-      margin-bottom: 20px;
+      margin-bottom: 1.25rem;
       @media (max-width: 48rem) {
         max-width: 28.125rem;
         font-size: 1.25rem;
@@ -55,7 +55,7 @@
       #060d17,
       #060d17
     );
-    @media (max-width: 768px) {
+    @media (max-width: 48rem) {
       height: 2rem;
     }
   }
