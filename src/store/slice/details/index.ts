@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { DetailsType, DetailsTypeSlice } from "../../../common/types/details"
+import { DetailsType, DetailsTypeSlice, CreditsType } from "../../../common/types/details"
 import { getCredits, getDetails } from "../../thunks/details"
 
-const initialState: any = {
+const initialState: DetailsTypeSlice = {
   detailsData: {} as DetailsType,
-  creditsData: [],
+  creditsData: {} as CreditsType,
 }
 
 export const detailsSlice = createSlice({

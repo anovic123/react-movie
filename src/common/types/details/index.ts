@@ -12,6 +12,7 @@ export interface DetailsType {
   overview: string
   popularity: number
   poster_path: string
+  original_name?: string
   production_companies: ProductionCompany[]
   production_countries: ProductionCountry[]
   release_date: string
@@ -49,7 +50,7 @@ export interface SpokenLanguage {
   name: string
 }
 
-export interface CastsType {
+export interface CreditsType {
   id: number
   cast: Cast[]
   crew: Crew[]
@@ -78,7 +79,7 @@ export interface Crew {
   name: string
   original_name: string
   popularity: number
-  profile_path?: string
+  profile_path: any
   credit_id: string
   department: string
   job: string
@@ -87,5 +88,5 @@ export interface Crew {
 
 export interface DetailsTypeSlice {
   detailsData: DetailsType | null;
-  castsData: CastsType;
+  creditsData: CreditsType;
 }

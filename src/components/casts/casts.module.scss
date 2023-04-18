@@ -2,21 +2,22 @@
   margin-top: 3.125rem;
   &Heading {
     font-size: 1.875rem;
-    margin-bottom: .625rem;
+    margin-bottom: 0.625rem;
   }
   &List {
     display: flex;
-    column-gap: 1.875rem;
+    column-gap: 1.25rem;
     flex-wrap: wrap;
   }
   &Item {
     text-align: center;
+    width: 10.75rem;
     &Image {
       border-radius: 50%;
       width: 6.25rem;
       height: 6.25rem;
       overflow: hidden;
-      margin: .625rem auto;
+      margin: 0.625rem auto;
       background-position: top center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -27,7 +28,7 @@
       text-align: center;
     }
     &Character {
-      margin-top: .3125rem;
+      margin-top: 0.3125rem;
       text-align: center;
       font-size: 1.0625rem;
     }

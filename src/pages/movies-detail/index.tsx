@@ -22,7 +22,7 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
   const dispatch = useAppDispatch();
 
   const { detailsData } = useAppSelector((state) => state.details);
-  console.log('🚀 ~ file: index.tsx:25 ~ detailsData:', detailsData);
+  // console.log('🚀 ~ file: index.tsx:25 ~ detailsData:', detailsData);
 
   useEffect(() => {
     if (!id) {
@@ -73,13 +73,13 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
           </div>
           <div className={s.detailsContentContainer}>
             {detailsData?.genres &&
-              detailsData?.genres.map((genre: any) => (
+              detailsData?.genres.map((genre) => (
                 <div key={genre?.id} className={s.detailsContentGenre}>
                   {genre?.name}
                 </div>
               ))}
           </div>
-          <Casts id={detailsData?.id} />
+          {detailsData?.id && <Casts id={detailsData?.id} />}
         </div>
       </div>
     </section>

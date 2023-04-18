@@ -10,14 +10,14 @@ import { imageUrl } from '../../utils/constants';
 import s from './casts.module.scss';
 
 interface CastsProps {
-  id: string;
+  id: number;
 }
 
 export const Casts: FC<CastsProps> = ({ id }) => {
   const dispatch = useAppDispatch();
 
   const { creditsData } = useAppSelector((state) => state.details);
-  
+
   useEffect(() => {
     dispatch(getCredits(id));
   }, [id]);
