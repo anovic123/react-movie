@@ -7,7 +7,11 @@
   width: 100%;
   z-index: 100;
   padding: 0.625rem 0;
-  height: 4.0625rem;
+  height: 4.0925rem;
+
+  @media (max-width: 768px) {
+    background-color: $header-color !important;
+  }
 
   &.activeHeader {
     background-color: $header-color !important;
@@ -36,12 +40,96 @@
           height: 0.125rem;
           transition: width 0.5s ease 0s;
           background-color: $red;
+          @media (max-width: 768px) {
+            text-align: center;
+          }
         }
 
         &.activeLink::after,
         &:hover::after {
           width: 100%;
         }
+      }
+    }
+  }
+}
+
+.burgerMenu {
+  position: relative;
+  width: 64px;
+  height: 30px;
+  cursor: pointer;
+  display: inline-block;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  > span {
+    background-color: red;
+    position: absolute;
+    border-radius: 2px;
+    width: 50px;
+    height: 3px;
+    text-decoration: 500ms;
+    transition: 0.3s cubic-bezier(0.8, 0.5, 0.2, 1.4);
+    &:nth-child(1) {
+      top: 0;
+      left: 0;
+    }
+    &:nth-child(2) {
+      top: 13px;
+      left: 0;
+      opacity: 1;
+    }
+    &:nth-child(3) {
+      bottom: 0;
+      left: 0;
+    }
+  }
+  &Open {
+    > span {
+      &:nth-child(1) {
+        transform: rotate(45deg);
+        top: 13px;
+      }
+      &:nth-child(2) {
+        opacity: 0;
+      }
+      &:nth-child(3) {
+        transform: rotate(-45deg);
+        top: 13px;
+      }
+    }
+  }
+  &List {
+    position: absolute;
+    top: 54px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    padding: 50px 0;
+    background: rgba(21, 36, 72, 1);
+    backdrop-filter: blur(60px);
+    transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+    &Open {
+      opacity: 1;
+      visibility: visible;
+      transition: visibility 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    }
+
+    &Li {
+      text-align: center;
+      & a {
+        position: relative;
+        text-decoration: none;
+        font-size: 2em;
+        padding: 5px 20px;
+        display: inline-flex;
+        font-weight: 700;
       }
     }
   }

@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import { getCredits } from '../../store/thunks/details';
 
@@ -26,7 +26,7 @@ export const Casts: FC<CastsProps> = ({ id }) => {
       <h2 className={s.castHeading}>Cast</h2>
       <div className={s.castList}>
         {/* @ts-ignore */}
-        {creditsData.cast.slice(0, 4).map(({ name, character, profile_path }) => (
+        {creditsData?.cast?.slice(0, 4).map(({ name, character, profile_path }) => (
           <Link to="#" className={s.castItem}>
             <div
               className={s.castItemImage}

@@ -3,7 +3,7 @@ import { FC, useState, useEffect } from 'react';
 import { Banner } from '../../components/banner';
 import { MovieSlider } from '../../components/movie-slider';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import {
   getComedyMovies,

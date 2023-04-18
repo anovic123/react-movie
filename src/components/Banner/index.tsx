@@ -1,7 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { AiFillPlayCircle, AiFillInfoCircle } from 'react-icons/ai';
+import { useNavigate } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import { setRandomMovie } from '../../store/slice/movies';
 import { getMovies } from '../../store/thunks/movies';
@@ -19,6 +20,7 @@ export const Banner: FC<BannerProps> = ({}) => {
   const [activeModal, setActiveModal] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const { videosData } = useAppSelector((state) => state.videos);
   const { moviesData, randomMovieIndex } = useAppSelector((state) => state.movies);
@@ -57,7 +59,12 @@ export const Banner: FC<BannerProps> = ({}) => {
                   Play
                 </Button>
               )}
-              <Button size="small" variant="primary" startIcon={<AiFillInfoCircle />}>
+              <Button
+                size="small"
+                variant="primary"
+                startIcon={<AiFillInfoCircle />}
+                onClick={() => navigate(`/movies/${randomMovie?.id}`)}
+              >
                 More Info
               </Button>
             </div>
@@ -66,7 +73,11 @@ export const Banner: FC<BannerProps> = ({}) => {
         <div className={s.bannerBlur} />
       </div>
       {videosData && (
-        <ModalBanner data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />
+        <ModalBanner
+          data={videosData[0]}
+          activeModal={activeModal}
+          setActiveModal={setActiveModal}
+        />
       )}
     </>
   );

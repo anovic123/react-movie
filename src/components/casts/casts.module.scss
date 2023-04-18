@@ -6,11 +6,11 @@
   }
   &List {
     display: flex;
-    column-gap: 10px;
+    column-gap: 30px;
     flex-wrap: wrap;
   }
   &Item {
-    width: calc(100% / 5 - 10px);
+    // width: calc(100% / 4 - 10px);
     text-align: center;
     &Image {
       border-radius: 50%;

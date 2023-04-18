@@ -1,6 +1,8 @@
 import { FC, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useMediaQuery } from '../../hooks/use-media-query';
+
 import { navMenu } from '../../common/mocks/navigate';
 
 import s from './header.module.scss';
@@ -11,6 +13,9 @@ export const Header: FC<HeaderProps> = ({}) => {
   const headerRef = useRef<HTMLDivElement>(null);
 
   const [activeLink, setActiveLink] = useState<number>(157);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+
+  const isMobile = useMediaQuery(768);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,15 +33,36 @@ export const Header: FC<HeaderProps> = ({}) => {
     };
   }, []);
 
+  const handleToggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header ref={headerRef} className={s.header}>
       <div className={s.headerContainer}>
         <Link to="/" className={s.headerLogo}>
           React Movies
         </Link>
-        <ul className={s.headerNav}>
+        {isMobile && (
+          <button
+            className={`${s.burgerMenu} ${menuOpen && s.burgerMenuOpen}`}
+            onClick={handleToggleMenu}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        )}
+        <ul
+          className={`${isMobile ? s.burgerMenuList : s.headerNav} ${
+            menuOpen ? s.burgerMenuListOpen : ''
+          }`}
+        >
           {navMenu.map((el) => (
-            <li key={el.id} className={s.headerNavLi}>
+            <li
+              key={el.id}
+              className={`${isMobile ? s.burgerMenuListLi : s.headerNavLi && s.burgerMenuListLi}`}
+            >
               <Link
                 to={el.path}
                 onClick={() => setActiveLink(el.id)}

@@ -2,7 +2,7 @@ import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { AiFillStar } from 'react-icons/ai';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import { getDetails } from '../../store/thunks/details';
 import { convertDuration } from '../../utils/converDuration';
@@ -73,7 +73,7 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
                 </div>
               ))}
           </div>
-        <Casts id={detailsData.id} />
+          <Casts id={detailsData?.id} />
         </div>
       </div>
     </section>

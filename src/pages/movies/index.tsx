@@ -1,7 +1,7 @@
 import { FC, useEffect } from 'react';
 import { v1 } from 'uuid';
 
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import { getMovies } from '../../store/thunks/movies';
 
