@@ -46,11 +46,31 @@ export const HomePage: FC<HomePageProps> = ({}) => {
       <div className={s.homeSlider}>
         <Banner />
       </div>
-      <MovieSlider title="Netflix Original" data={netflixMovies} loading={comedyMoviesLoading} />
-      <MovieSlider title="Horror" data={horrorMovies} loading={horrorMoviesLoading} />
-      <MovieSlider title="Comedy" data={comedyMovies} loading={documentaryMoviesLoading} />
-      <MovieSlider title="Romance" data={romanceMovies} loading={netflixMoviesLoading} />
-      <MovieSlider title="Documentary" data={documentaryMovies} loading={romanceMoviesLoading} />
+      <MovieSlider
+        title="Netflix Original"
+        type="tv"
+        data={netflixMovies}
+        loading={comedyMoviesLoading}
+      />
+      <MovieSlider title="Horror" type="movie" data={horrorMovies} loading={horrorMoviesLoading} />
+      <MovieSlider
+        title="Comedy"
+        type="movie"
+        data={comedyMovies}
+        loading={documentaryMoviesLoading}
+      />
+      <MovieSlider
+        title="Romance"
+        type="movie"
+        data={romanceMovies}
+        loading={netflixMoviesLoading}
+      />
+      <MovieSlider
+        title="Documentary"
+        type="movie"
+        data={documentaryMovies}
+        loading={romanceMoviesLoading}
+      />
     </section>
   );
 };

@@ -65,7 +65,7 @@ export const Banner: FC<BannerProps> = ({}) => {
                 size="small"
                 variant="primary"
                 startIcon={<AiFillInfoCircle />}
-                onClick={() => navigate(`/movies/${randomMovie?.id}`)}
+                onClick={() => navigate(`/movie/${randomMovie?.id}`)}
               >
                 More Info
               </Button>

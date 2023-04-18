@@ -16,7 +16,7 @@ export const App: FC<AppProps> = ({}) => {
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/movies/:id" element={<MoviesDetail />} />
+          <Route path="/:category/:id" element={<MoviesDetail />} />
         </Route>
       </Routes>
     </div>

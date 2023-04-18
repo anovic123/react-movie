@@ -17,17 +17,18 @@ import { getVideos } from '../../store/thunks/videos';
 interface MoviesDetailProps {}
 
 export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
-  const { id } = useParams();
+  const { id, category } = useParams();
 
   const dispatch = useAppDispatch();
 
   const { detailsData } = useAppSelector((state) => state.details);
+  console.log('🚀 ~ file: index.tsx:25 ~ detailsData:', detailsData);
 
   useEffect(() => {
     if (!id) {
       return;
     }
-    dispatch(getDetails(id));
+    dispatch(getDetails({ id, type: category || 'movie' }));
     dispatch(getVideos(Number(id)));
   }, [id]);
 
@@ -53,12 +54,14 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
           />
         </div>
         <div className={s.detailsContent}>
-          <h1 className={s.detailsContentTitle}>{detailsData?.title}</h1>
+          <h1 className={s.detailsContentTitle}>
+            {detailsData?.title || detailsData?.original_name}
+          </h1>
           <span className={s.detailsContentTagline}>{detailsData?.tagline}</span>
           <p className={s.detailsContentDescription}>{detailsData?.overview}</p>
           <div className={s.detailsContentContainer}>
             <div className={s.detailsContentDuration}>
-              {convertDuration(detailsData?.runtime || 0)}
+              {detailsData?.runtime && convertDuration(detailsData?.runtime)}
             </div>
             <div
               className={s.detailsContentRating}

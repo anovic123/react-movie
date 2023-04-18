@@ -18,17 +18,18 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 interface MovieSliderProps {
   title: string;
   data: MovieTypeResult[];
+  type: string;
   loading: boolean;
 }
 
-export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
+export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }) => {
   const navigate = useNavigate();
 
   const movies = data.map((movie) => (
     <SwiperSlide key={v1()} className={s.movieSliderSlide}>
       <LazyLoad className={s.movieSliderLoader}>
         <img
-          onClick={() => navigate(`/movies/${movie.id}`)}
+          onClick={() => navigate(`/${type}/${movie.id}`)}
           src={`${imageUrl}${movie.poster_path}`}
           loading="lazy"
         />

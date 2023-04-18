@@ -3,9 +3,9 @@ import { api } from "../../../utils/axios";
 
 export const getDetails = createAsyncThunk(
   'get-details',
-  async (id: string, { rejectWithValue }) => {
+  async ({ id, type }: { id: string, type: string }, { rejectWithValue }) => {
     try {
-      const response = await api.get(`movie/${id}?api_key=${import.meta.env.VITE_API_KEY}`)
+      const response = await api.get(`${type}/${id}?api_key=${import.meta.env.VITE_API_KEY}`)
       return response.data;
     } catch (error: any) {
       if (error.response && error.response.data.message) {
