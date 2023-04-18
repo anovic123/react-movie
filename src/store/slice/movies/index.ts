@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 import { initialStateType } from '../../../common/types/movies';
 import { getMovies, getHorrorMovies, getComedyMovies, getDocumentaryMovies, getNetflixMovies, getRomanceMovies } from '../../thunks/movies';
 
-const initialState: initialStateType = {  moviesDataLoading: false,
+const initialState: initialStateType = {  
+  moviesDataLoading: false,
   horrorMoviesLoading: false,
   comedyMoviesLoading: false,
   documentaryMoviesLoading: false,
@@ -14,7 +15,6 @@ const initialState: initialStateType = {  moviesDataLoading: false,
   documentaryMovies: [],
   netflixMovies: [],
   romanceMovies: [],
-
   randomMovieIndex: 0
 }
 
@@ -31,36 +31,36 @@ export const moviesSlice = createSlice({
       state.moviesDataLoading = true;
     });
     builder.addCase(getMovies.fulfilled, (state, action) => {
-      state.moviesData = action.payload;
       state.moviesDataLoading = false;
+      state.moviesData = action.payload;
     });
     builder.addCase(getMovies.rejected, (state) => {
-      state.moviesData = [];
       state.moviesDataLoading = false;
+      state.moviesData = [];
     });
 
     builder.addCase(getHorrorMovies.pending, (state) => {
       state.horrorMoviesLoading = true;
     });
     builder.addCase(getHorrorMovies.fulfilled, (state, action) => {
-      state.horrorMovies = action.payload;
       state.horrorMoviesLoading = false;
+      state.horrorMovies = action.payload;
     });
     builder.addCase(getHorrorMovies.rejected, (state) => {
-      state.horrorMovies = [];
       state.horrorMoviesLoading = false;
+      state.horrorMovies = [];
     });
 
     builder.addCase(getComedyMovies.pending, (state) => {
       state.comedyMoviesLoading = true;
     });
     builder.addCase(getComedyMovies.fulfilled, (state, action) => {
-      state.comedyMovies = action.payload;
       state.comedyMoviesLoading = false;
+      state.comedyMovies = action.payload;
     });
     builder.addCase(getComedyMovies.rejected, (state) => {
-      state.comedyMovies = [];
       state.comedyMoviesLoading = false;
+      state.comedyMovies = [];
     })
 
     builder.addCase(getDocumentaryMovies.pending, (state) => {
@@ -71,32 +71,32 @@ export const moviesSlice = createSlice({
       state.documentaryMoviesLoading = false;
     });
     builder.addCase(getDocumentaryMovies.rejected, (state) => {
-      state.documentaryMovies = [];
       state.documentaryMoviesLoading = false;
+      state.documentaryMovies = [];
     })
 
     builder.addCase(getNetflixMovies.pending, (state) => {
       state.netflixMoviesLoading = true;
     })
     builder.addCase(getNetflixMovies.fulfilled, (state, action) => {
-      state.netflixMovies = action.payload;
       state.netflixMoviesLoading = false;
+      state.netflixMovies = action.payload;
     });
     builder.addCase(getNetflixMovies.rejected, (state) => {
-      state.netflixMovies = [];
       state.netflixMoviesLoading = false;
+      state.netflixMovies = [];
     });
 
     builder.addCase(getRomanceMovies.pending, (state) => {
       state.romanceMoviesLoading = true;
     });
     builder.addCase(getRomanceMovies.fulfilled, (state, action) => {
-      state.romanceMovies = action.payload;
       state.romanceMoviesLoading = false;
+      state.romanceMovies = action.payload;
     });
     builder.addCase(getRomanceMovies.rejected, (state) => {
-      state.romanceMovies = [];
       state.romanceMoviesLoading = false;
+      state.romanceMovies = [];
     })
   }
 })

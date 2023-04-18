@@ -12,6 +12,7 @@ import { imageUrl } from '../../utils/constants';
 import { convertDuration } from '../../utils/converDuration';
 
 import s from './movies-detail.module.scss';
+import { getVideos } from '../../store/thunks/videos';
 
 interface MoviesDetailProps {}
 
@@ -27,6 +28,7 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
       return;
     }
     dispatch(getDetails(id));
+    dispatch(getVideos(Number(id)));
   }, [id]);
 
   return (

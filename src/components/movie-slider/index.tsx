@@ -36,7 +36,11 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
     </SwiperSlide>
   ));
 
-  const skeletons = [...new Array(6)].map((_) => <Skeleton key={v1()} />);
+  const skeletons = [...new Array(10)].map((_) => (
+    <SwiperSlide key={v1()} className={s.movieSliderSlide}>
+      <Skeleton />
+    </SwiperSlide>
+  ));
 
   return (
     <>
@@ -67,7 +71,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
         }}
       >
         {loading ? (
-          <SwiperSlide className={s.movieSliderSlide}>{skeletons}</SwiperSlide>
+          skeletons
         ) : (
           <>
             {movies.length ? (
