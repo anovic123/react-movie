@@ -3,6 +3,7 @@ import { v1 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { useNavigate } from 'react-router-dom';
+import LazyLoad from 'react-lazy-load';
 
 import { MovieTypeResult } from '../../common/types/movies';
 
@@ -25,10 +26,13 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
 
   const movies = data.map((movie) => (
     <SwiperSlide key={v1()} className={s.movieSliderSlide}>
-      <img
-        onClick={() => navigate(`/movies/${movie.id}`)}
-        src={`${imageUrl}${movie.poster_path}`}
-      />
+      <LazyLoad className={s.movieSliderLoader}>
+        <img
+          onClick={() => navigate(`/movies/${movie.id}`)}
+          src={`${imageUrl}${movie.poster_path}`}
+          loading="lazy"
+        />
+      </LazyLoad>
     </SwiperSlide>
   ));
 
@@ -62,7 +66,19 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading }) => {
           },
         }}
       >
-        {loading ? <SwiperSlide className={s.movieSliderSlide}>{skeletons}</SwiperSlide> : movies}
+        {loading ? (
+          <SwiperSlide className={s.movieSliderSlide}>{skeletons}</SwiperSlide>
+        ) : (
+          <>
+            {movies.length ? (
+              movies
+            ) : (
+              <SwiperSlide className={s.movieSliderSlide}>
+                <div>No movies found.</div>
+              </SwiperSlide>
+            )}
+          </>
+        )}
       </Swiper>
     </>
   );

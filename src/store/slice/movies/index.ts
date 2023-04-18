@@ -2,19 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 import { initialStateType } from '../../../common/types/movies';
 import { getMovies, getHorrorMovies, getComedyMovies, getDocumentaryMovies, getNetflixMovies, getRomanceMovies } from '../../thunks/movies';
 
-const initialState: initialStateType = {
+const initialState: initialStateType = {  moviesDataLoading: false,
+  horrorMoviesLoading: false,
+  comedyMoviesLoading: false,
+  documentaryMoviesLoading: false,
+  netflixMoviesLoading: false,
+  romanceMoviesLoading: false,
   moviesData: [],
   horrorMovies: [],
   comedyMovies: [],
   documentaryMovies: [],
   netflixMovies: [],
   romanceMovies: [],
-  moviesDataLoading: false,
-  horrorMoviesLoading: false,
-  comedyMoviesLoading: false,
-  documentaryMoviesLoading: false,
-  netflixMoviesLoading: false,
-  romanceMoviesLoading: false,
+
   randomMovieIndex: 0
 }
 
