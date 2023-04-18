@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { DetailsType, DetailsTypeSlice } from "../../../common/types/details"
-import { getDetails } from "../../thunks/details"
+import { getCredits, getDetails } from "../../thunks/details"
 
-const initialState: DetailsTypeSlice = {
+const initialState: any = {
   detailsData: {} as DetailsType,
+  creditsData: [],
 }
 
 export const detailsSlice = createSlice({
@@ -13,6 +14,9 @@ export const detailsSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getDetails.fulfilled, (state, action) => {
       state.detailsData = action.payload;
+    }),
+    builder.addCase(getCredits.fulfilled, (state, action) => {
+      state.creditsData = action.payload;
     })
   }
 })

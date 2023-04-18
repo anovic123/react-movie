@@ -7,6 +7,8 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { getDetails } from '../../store/thunks/details';
 import { convertDuration } from '../../utils/converDuration';
 
+import { Casts } from '../../components/casts';
+
 import s from './movies-detail.module.scss';
 
 interface MoviesDetailProps {}
@@ -17,9 +19,12 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
   const dispatch = useAppDispatch();
 
   const { detailsData } = useAppSelector((state) => state.details);
-  console.log('🚀 ~ file: index.tsx:14 ~ detailsData:', detailsData);
+  // console.log('🚀 ~ file: index.tsx:14 ~ detailsData:', detailsData);
 
   useEffect(() => {
+    if (!id) {
+      return;
+    }
     dispatch(getDetails(id));
   }, [id]);
 
@@ -34,6 +39,7 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
             })`,
           }}
         ></div>
+        <div className={s.detailsImageBlur}></div>
       </div>
       <div className={s.detailsContainer}>
         <div className={s.detailsPoster}>
@@ -59,6 +65,15 @@ export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
               {detailsData?.vote_average?.toFixed(2)}
             </div>
           </div>
+          <div className={s.detailsContentContainer}>
+            {detailsData?.genres &&
+              detailsData?.genres.map((genre: any) => (
+                <div key={genre?.id} className={s.detailsContentGenre}>
+                  {genre?.name}
+                </div>
+              ))}
+          </div>
+        <Casts id={detailsData.id} />
         </div>
       </div>
     </section>

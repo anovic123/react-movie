@@ -51,4 +51,5 @@ export interface SpokenLanguage {
 
 export interface DetailsTypeSlice {
   detailsData: DetailsType | null;
+  castsData: any;
 }

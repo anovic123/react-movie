@@ -1,0 +1,36 @@
+.cast {
+  margin-top: 50px;
+  &Heading {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  &List {
+    display: flex;
+    column-gap: 10px;
+    flex-wrap: wrap;
+  }
+  &Item {
+    width: calc(100% / 5 - 10px);
+    text-align: center;
+    &Image {
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      overflow: hidden;
+      margin: 10px auto;
+      background-position: top center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    &Name {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+    }
+    &Character {
+      margin-top: 5px;
+      text-align: center;
+      font-size: 17px;
+    }
+  }
+}
