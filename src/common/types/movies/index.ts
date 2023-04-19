@@ -5,12 +5,16 @@ export interface initialStateType {
   documentaryMovies: MovieTypeResult[];
   netflixMovies: MovieTypeResult[];
   romanceMovies: MovieTypeResult[];
+  popularMovies: MovieType;
+  playingMovies: MovieType;
   moviesDataLoading: boolean;
   horrorMoviesLoading: boolean;
   comedyMoviesLoading: boolean;
   documentaryMoviesLoading: boolean;
   netflixMoviesLoading: boolean;
   romanceMoviesLoading: boolean;
+  popularMoviesLoading: boolean;
+  playingMoviesLoading: boolean;
   randomMovieIndex: number;
 }
 

@@ -3,6 +3,8 @@ import { v1 } from 'uuid';
 
 import { Card } from '../../components/card';
 import { Pagination } from '../../components/pagination';
+import { SkeletonCard } from '../../components/card/skeleton-card';
+import { Slider } from '../../components/slider';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
@@ -11,8 +13,6 @@ import { getTvPopular } from '../../store/thunks/tv';
 import { imageUrl } from '../../utils/constants';
 
 import s from './tv.module.scss';
-import { SkeletonCard } from '../../components/card/skeleton-card';
-import { TvSlider } from '../../components/tv-slider';
 
 interface TvPageProps {}
 
@@ -56,9 +56,11 @@ export const TvPage: FC<TvPageProps> = ({}) => {
 
   return (
     <section className={s.tv}>
-      <TvSlider data={popularTvData?.results?.slice(0, 10)} loading={popularTvDataLoading} />
+      <Slider data={popularTvData?.results?.slice(0, 10)} loading={popularTvDataLoading} type="tv" />
       <div className={s.tvContainer}>
-        <ul className={s.tvList}>{popularTvDataLoading ? skeletons : cards}</ul>
+        <ul className={s.tvList}>
+          {popularTvDataLoading ? skeletons : cards}
+        </ul>
         {!popularTvDataLoading && (
           <Pagination
             currentPage={popularTvData.page}

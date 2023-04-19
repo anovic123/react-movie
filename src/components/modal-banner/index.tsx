@@ -1,7 +1,8 @@
 import { FC, useEffect } from 'react';
-import ReactPlayer from 'react-player';
-import { VideosType } from '../../common/types/videos';
+
 import { VideoPlayer } from '../video-player';
+
+import { VideosType } from '../../common/types/videos';
 
 import s from './modal.module.scss';
 
@@ -12,6 +13,7 @@ interface ModalBannerProps {
 }
 
 export const ModalBanner: FC<ModalBannerProps> = ({ data, activeModal, setActiveModal }) => {
+  
   useEffect(() => {
     if (activeModal) {
       window.scrollTo({ top: 0, behavior: 'smooth' });

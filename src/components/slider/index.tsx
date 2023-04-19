@@ -4,29 +4,35 @@ import { v1 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
-import { imageUrl } from '../../utils/constants';
+import { SkeletonSlider } from './skeleton-slider';
+
 import { Result } from '../../common/types/tv';
+import { MovieTypeResult } from '../../common/types/movies';
+
+import { imageUrl } from '../../utils/constants';
 
 import s from './tv-slider.module.scss';
-import { SkeletonSlider } from './skeleton-slider';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
 interface TvSliderProps {
-  data: Result[];
+  data: Result[] | MovieTypeResult[];
   loading: boolean;
+  type: string;
 }
 
-export const TvSlider: FC<TvSliderProps> = ({ data, loading }) => {
+export const Slider: FC<TvSliderProps> = ({ data, loading, type }) => {
   const navigate = useNavigate();
 
   const sliderImages = data?.map((el) => (
-    <SwiperSlide>
+    <SwiperSlide className={s.tvSliderItem}>
       <img
         src={`${imageUrl}${el?.backdrop_path}`}
         className={s.tvSliderImg}
-        onClick={() => navigate(`/tv/${el?.id}`)}
+        onClick={() => navigate(`/${type}/${el?.id}`)}
       />
+      {/* @ts-ignore */}
+      <h3 className={s.tvSliderTitle}>{el?.name || el?.title}</h3>
     </SwiperSlide>
   ));
 

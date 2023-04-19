@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { initialStateType } from '../../../common/types/movies';
-import { getMovies, getHorrorMovies, getComedyMovies, getDocumentaryMovies, getNetflixMovies, getRomanceMovies } from '../../thunks/movies';
+import { initialStateType, MovieType } from '../../../common/types/movies';
+import { getMovies, getHorrorMovies, getComedyMovies, getDocumentaryMovies, getNetflixMovies, getRomanceMovies, getPopularMovies, getPlayingMovies } from '../../thunks/movies';
 
 const initialState: initialStateType = {  
   moviesDataLoading: false,
@@ -9,12 +9,16 @@ const initialState: initialStateType = {
   documentaryMoviesLoading: false,
   netflixMoviesLoading: false,
   romanceMoviesLoading: false,
+  popularMoviesLoading: false,
+  playingMoviesLoading: false,
   moviesData: [],
   horrorMovies: [],
   comedyMovies: [],
   documentaryMovies: [],
   netflixMovies: [],
   romanceMovies: [],
+  popularMovies: {} as MovieType,
+  playingMovies: {} as MovieType,
   randomMovieIndex: 0
 }
 
@@ -36,7 +40,6 @@ export const moviesSlice = createSlice({
     });
     builder.addCase(getMovies.rejected, (state) => {
       state.moviesDataLoading = false;
-      state.moviesData = [];
     });
 
     builder.addCase(getHorrorMovies.pending, (state) => {
@@ -97,6 +100,28 @@ export const moviesSlice = createSlice({
     builder.addCase(getRomanceMovies.rejected, (state) => {
       state.romanceMoviesLoading = false;
       state.romanceMovies = [];
+    })
+
+    builder.addCase(getPopularMovies.pending, (state) => {
+      state.popularMoviesLoading = true;
+    });
+    builder.addCase(getPopularMovies.fulfilled, (state, action) => {
+      state.popularMoviesLoading = false;
+      state.popularMovies = action.payload;
+    })
+    builder.addCase(getPopularMovies.rejected, (state) => {
+      state.popularMoviesLoading = false;
+    });
+
+    builder.addCase(getPlayingMovies.pending, (state) => {
+      state.playingMoviesLoading = true;
+    });
+    builder.addCase(getPlayingMovies.fulfilled, (state, action) => {
+      state.playingMoviesLoading = false;
+      state.playingMovies = action.payload;   
+    });
+    builder.addCase(getPlayingMovies.rejected, (state) => {
+      state.playingMoviesLoading = false;
     })
   }
 })

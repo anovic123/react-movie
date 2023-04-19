@@ -13,3 +13,4 @@ export const getTvPopular = createAsyncThunk('get-tv-popular', async (page: numb
     }
   }
 })
+

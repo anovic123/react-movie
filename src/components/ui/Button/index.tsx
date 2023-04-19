@@ -1,7 +1,7 @@
-import classnames from 'classnames';
 import { FC, DetailedHTMLProps, ButtonHTMLAttributes, ReactNode } from 'react';
+import classnames from 'classnames';
 
-import './Button.scss';
+import './button.scss';
 
 type ButtonVariant = 'border' | 'primary';
 type ButtonSize = 'small' | 'medium';

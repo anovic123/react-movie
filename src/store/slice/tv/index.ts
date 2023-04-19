@@ -19,7 +19,7 @@ export const tvSlice = createSlice({
       state.popularTvDataLoading = false;
       state.popularTvData = action.payload;
     });
-    builder.addCase(getTvPopular.rejected, (state, action) => {
+    builder.addCase(getTvPopular.rejected, (state) => {
       state.popularTvDataLoading = false;
     })
   }

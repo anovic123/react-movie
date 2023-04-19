@@ -1,5 +1,6 @@
 import { FC } from 'react';
-import { Button } from '../ui/Button';
+
+import { Button } from '../ui/button';
 
 import s from './pagination.module.scss';
 

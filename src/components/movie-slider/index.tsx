@@ -5,9 +5,9 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { useNavigate } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 
-import { MovieTypeResult } from '../../common/types/movies';
-
 import { Skeleton } from '../skeleton';
+
+import { MovieTypeResult } from '../../common/types/movies';
 
 import { imageUrl } from '../../utils/constants';
 

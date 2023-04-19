@@ -81,3 +81,29 @@ export const getRomanceMovies = createAsyncThunk('get-romance', async (_, { reje
     }
   }
 })
+
+export const getPopularMovies = createAsyncThunk('get-popular-movies', async(page: number, { rejectWithValue }) => {
+  try {
+    const response = await api.get(`/movie/popular?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=${page}`)
+    return response.data;
+  } catch (error: any) {
+    if (error.response && error.response.data.message) {
+      return rejectWithValue(error.response.data.message);
+    } else {
+      return rejectWithValue(error.message);
+    }
+  }
+})
+
+export const getPlayingMovies = createAsyncThunk('get-playing-movies', async(page: number, { rejectWithValue }) => {
+  try {
+    const response = await api.get(`/movie/now_playing?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=${page}`)
+    return response.data;
+  } catch (error: any) {
+    if (error.response && error.response.data.message) {
+      return rejectWithValue(error.response.data.message);
+    } else {
+      return rejectWithValue(error.message);
+    }
+  }
+} )

@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Layout } from './layout';
 
 import { HomePage, MoviesPage, MoviesDetailPage, NotFoundPagePage, TvPage } from './pages';
+import { PopularPage } from './pages/popular';
 import { ROUTES } from './utils/routes';
 
 interface AppProps {}
@@ -17,6 +18,7 @@ export const App: FC<AppProps> = ({}) => {
           <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
           <Route path={ROUTES.MOVIES_DETAIL} element={<MoviesDetailPage />} />
           <Route path={ROUTES.TV} element={<TvPage />} />
+          <Route path={ROUTES.NEW_AND_POPULAR} element={<PopularPage />} />
           <Route path={ROUTES.NOT_FOUND} element={<NotFoundPagePage />} />
         </Route>
       </Routes>

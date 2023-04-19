@@ -22,7 +22,6 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   const dispatch = useAppDispatch();
 
   const { detailsData } = useAppSelector((state) => state.details);
-  // console.log('🚀 ~ file: index.tsx:25 ~ detailsData:', detailsData);
 
   useEffect(() => {
     if (!id) {

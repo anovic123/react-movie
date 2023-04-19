@@ -12,7 +12,7 @@ import { imageUrl } from '../../utils/constants';
 
 import { ModalBanner } from '../modal-banner';
 
-import { Button } from '../ui/Button';
+import { Button } from '../ui/button';
 
 import s from './banner.module.scss';
 
@@ -33,10 +33,13 @@ export const Banner: FC<BannerProps> = ({}) => {
     dispatch(getMovies('popular')).then(() => {
       dispatch(setRandomMovie());
     });
+  }, []);
+
+  useEffect(() => {
     if (randomMovie?.id) {
       dispatch(getVideos(randomMovie?.id));
     }
-  }, []);
+  }, [randomMovie?.id]);
 
   return (
     <>
