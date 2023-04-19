@@ -47,7 +47,7 @@ export const MoviesPage: FC<MoviesProps> = ({}) => {
         poster={res.backdrop_path === null ? pureImagePath : posterUrlPath}
         title={res.title}
         rating={res.vote_average}
-        type="tv"
+        type="movie"
       />
     );
   });

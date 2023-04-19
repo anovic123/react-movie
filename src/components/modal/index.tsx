@@ -6,13 +6,13 @@ import { VideosType } from '../../common/types/videos';
 
 import s from './modal.module.scss';
 
-interface ModalBannerProps {
+interface ModalProps {
   data: VideosType;
   activeModal: boolean;
   setActiveModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const ModalBanner: FC<ModalBannerProps> = ({ data, activeModal, setActiveModal }) => {
+export const Modal: FC<ModalProps> = ({ data, activeModal, setActiveModal }) => {
   
   useEffect(() => {
     if (activeModal) {

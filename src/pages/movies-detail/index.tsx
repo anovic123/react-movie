@@ -1,6 +1,6 @@
-import { FC, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { AiFillStar } from 'react-icons/ai';
+import { AiFillStar, AiFillPlayCircle } from 'react-icons/ai';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
@@ -8,6 +8,8 @@ import { getDetails } from '../../store/thunks/details';
 import { getVideos } from '../../store/thunks/videos';
 
 import { Casts } from '../../components/casts';
+import { Button } from '../../components/ui/button';
+import { Modal } from '../../components/modal';
 
 import { imageUrl } from '../../utils/constants';
 import { convertDuration } from '../../utils/convertDuration';
@@ -18,9 +20,12 @@ interface MoviesDetailPageProps {}
 
 export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   const { id, category } = useParams();
-
   const dispatch = useAppDispatch();
 
+  const [activeModal, setActiveModal] = useState<boolean>(false);
+
+  const { videosData } = useAppSelector((state) => state.videos);
+  console.log('🚀 ~ file: index.tsx:28 ~ videosData:', videosData);
   const { detailsData } = useAppSelector((state) => state.details);
 
   useEffect(() => {
@@ -78,9 +83,22 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
                 </div>
               ))}
           </div>
+          {videosData && (
+            <Button
+              onClick={() => setActiveModal(true)}
+              size="small"
+              variant="border"
+              startIcon={<AiFillPlayCircle />}
+            >
+              Play
+            </Button>
+          )}
           {detailsData?.id && <Casts id={detailsData?.id} />}
         </div>
       </div>
+      {videosData && (
+        <Modal data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />
+      )}
     </section>
   );
 };

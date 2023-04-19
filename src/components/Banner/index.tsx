@@ -10,7 +10,7 @@ import { getVideos } from '../../store/thunks/videos';
 
 import { imageUrl } from '../../utils/constants';
 
-import { ModalBanner } from '../modal-banner';
+import { Modal } from '../modal';
 
 import { Button } from '../ui/button';
 
@@ -78,7 +78,7 @@ export const Banner: FC<BannerProps> = ({}) => {
         <div className={s.bannerBlur} />
       </div>
       {videosData && (
-        <ModalBanner
+        <Modal
           data={videosData[0]}
           activeModal={activeModal}
           setActiveModal={setActiveModal}
