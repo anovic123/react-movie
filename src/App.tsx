@@ -3,9 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Layout } from './layout';
 
-import { HomePage } from './pages/home';
-import { MoviesPage } from './pages/movies';
-import { MoviesDetail } from './pages/movies-detail';
+import { HomePage, MoviesPage, MoviesDetailPage, NotFoundPagePage } from './pages';
 
 interface AppProps {}
 
@@ -16,7 +14,8 @@ export const App: FC<AppProps> = ({}) => {
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/movies" element={<MoviesPage />} />
-          <Route path="/:category/:id" element={<MoviesDetail />} />
+          <Route path="/:category/:id" element={<MoviesDetailPage />} />
+          <Route path="*" element={<NotFoundPagePage />} />
         </Route>
       </Routes>
     </div>

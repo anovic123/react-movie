@@ -5,18 +5,18 @@ import { AiFillStar } from 'react-icons/ai';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
 import { getDetails } from '../../store/thunks/details';
+import { getVideos } from '../../store/thunks/videos';
 
 import { Casts } from '../../components/casts';
 
 import { imageUrl } from '../../utils/constants';
-import { convertDuration } from '../../utils/converDuration';
+import { convertDuration } from '../../utils/convertDuration';
 
 import s from './movies-detail.module.scss';
-import { getVideos } from '../../store/thunks/videos';
 
-interface MoviesDetailProps {}
+interface MoviesDetailPageProps {}
 
-export const MoviesDetail: FC<MoviesDetailProps> = ({}) => {
+export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   const { id, category } = useParams();
 
   const dispatch = useAppDispatch();
