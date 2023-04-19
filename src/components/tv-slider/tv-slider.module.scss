@@ -1,0 +1,10 @@
+.tvSlider {
+  margin-bottom: 1.25rem;
+  .tvSliderImg {
+    cursor: pointer;
+    max-height: 28.125rem;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 0.3125rem;
+  }
+}

@@ -1,0 +1,15 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.25rem;
+
+  &Page {
+    margin: 0 .625rem;
+    padding: .3125rem;
+    font-size: 1.5625rem;
+    border: .0625rem solid #fff;
+    padding: .3125rem 1.25rem;
+    border-radius: .625rem;
+  }
+}

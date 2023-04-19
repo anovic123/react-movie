@@ -17,11 +17,10 @@ export const MoviesPage: FC<MoviesProps> = ({}) => {
   }, []);
 
   return (
-    <div>
-      MoviesPage
+    <section>
       {moviesData.map((movies) => (
         <h2 key={v1()}>{movies.title}</h2>
       ))}
-    </div>
+    </section>
   );
 };
