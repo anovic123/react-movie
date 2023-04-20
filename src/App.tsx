@@ -3,8 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Layout } from './layout';
 
-import { HomePage, MoviesPage, MoviesDetailPage, NotFoundPagePage, TvPage } from './pages';
-import { PopularPage } from './pages/popular';
+import { HomePage, MoviesPage, MoviesDetailPage, NotFoundPagePage, TvPage, PopularPage } from './pages';
+
 import { ROUTES } from './utils/routes';
 
 interface AppProps {}

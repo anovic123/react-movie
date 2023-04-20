@@ -3,3 +3,4 @@ export * from './movies';
 export * from './movies-detail';
 export * from './not-found';
 export * from './tv';
+export * from './popular';
