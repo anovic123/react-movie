@@ -51,6 +51,8 @@ export const VideoPlayer: FC<VideoPlayerProps> = ({ url }) => {
           playing={playing}
           volume={volume}
           onProgress={handleProgress}
+          height="100%"
+          width="100%"
         />
       </div>
       <div className={s.videoPlayerControls}>

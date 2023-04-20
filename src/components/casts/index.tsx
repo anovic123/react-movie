@@ -24,7 +24,7 @@ export const Casts: FC<CastsProps> = ({ id }) => {
 
   return (
     <div className={s.cast}>
-      <h2 className={s.castHeading}>Cast</h2>
+      <h2 className={s.castHeading}>{creditsData?.cast && 'Cast'}</h2>
       <div className={s.castList}>
         {creditsData?.cast?.slice(0, 4).map(({ id, name, character, profile_path }) => {
           const imageUrlPath = `url(${imageUrl}${profile_path})`;
