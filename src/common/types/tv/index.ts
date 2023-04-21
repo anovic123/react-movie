@@ -21,8 +21,6 @@ export interface Result {
   vote_count: number
 }
 
-
-
 export interface initialStateTvType {
   popularTvData: popularTvDataType;
   popularTvDataLoading: boolean;

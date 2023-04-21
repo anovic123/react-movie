@@ -11,7 +11,6 @@ import { getVideos } from '../../store/thunks/videos';
 import { imageUrl } from '../../utils/constants';
 
 import { Modal } from '../modal';
-
 import { Button } from '../ui/button';
 
 import s from './banner.module.scss';

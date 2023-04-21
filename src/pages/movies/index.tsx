@@ -4,6 +4,7 @@ import { v1 } from 'uuid';
 import { Card } from '../../components/card';
 import { SkeletonCard } from '../../components/card/skeleton-card';
 import { Pagination } from '../../components/pagination';
+
 import { Slider } from '../../components/slider';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
@@ -62,6 +63,7 @@ export const MoviesPage: FC<MoviesProps> = ({}) => {
         type="movie"
       />
       <div className={s.moviesContainer}>
+
         <ul className={s.moviesList}>{playingMoviesLoading ? skeletons : cards}</ul>
         {!playingMoviesLoading && (
           <Pagination
