@@ -41,7 +41,7 @@ export const Reviews: FC<ReviewsProps> = ({ currentPage, totalPages, data, handl
               <div className={s.reviewContent}>
                 <div className={s.reviewUser}>
                   <div className={s.reviewHeader}>
-                    <div className={s.reviewAuthor}>{name},</div>
+                    <div className={s.reviewAuthor}>{name || 'Anonim'},</div>
                     <div className={s.reviewDate}>{convertDate(created_at)}</div>
                   </div>
 
