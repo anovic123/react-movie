@@ -1,10 +1,8 @@
 import { FC, useEffect } from 'react';
 import { v1 } from 'uuid';
 
-import { Card } from '../../components/card';
-import { Pagination } from '../../components/pagination';
+import { Card, Pagination, Slider } from '../../components';
 import { SkeletonCard } from '../../components/card/skeleton-card';
-import { Slider } from '../../components/slider';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
@@ -56,11 +54,13 @@ export const TvPage: FC<TvPageProps> = ({}) => {
 
   return (
     <section className={s.tv}>
-      <Slider data={popularTvData?.results?.slice(0, 10)} loading={popularTvDataLoading} type="tv" />
+      <Slider
+        data={popularTvData?.results?.slice(0, 10)}
+        loading={popularTvDataLoading}
+        type="tv"
+      />
       <div className={s.tvContainer}>
-        <ul className={s.tvList}>
-          {popularTvDataLoading ? skeletons : cards}
-        </ul>
+        <ul className={s.tvList}>{popularTvDataLoading ? skeletons : cards}</ul>
         {!popularTvDataLoading && (
           <Pagination
             currentPage={popularTvData.page}

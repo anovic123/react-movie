@@ -8,10 +8,9 @@ import { setRandomMovie } from '../../store/slice/movies';
 import { getMovies } from '../../store/thunks/movies';
 import { getVideos } from '../../store/thunks/videos';
 
-import { imageUrl } from '../../utils/constants';
+import { Modal, Button } from '../';
 
-import { Modal } from '../modal';
-import { Button } from '../ui/button';
+import { imageUrl } from '../../utils/constants';
 
 import s from './banner.module.scss';
 

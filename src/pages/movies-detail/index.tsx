@@ -7,9 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import { getDetails } from '../../store/thunks/details';
 import { getVideos } from '../../store/thunks/videos';
 
-import { Casts } from '../../components/casts';
-import { Button } from '../../components/ui/button';
-import { Modal } from '../../components/modal';
+import { Casts, Button, Modal } from '../../components';
 
 import { imageUrl } from '../../utils/constants';
 import { convertDuration } from '../../utils/convertDuration';
@@ -25,7 +23,7 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   const [activeModal, setActiveModal] = useState<boolean>(false);
 
   const { videosData } = useAppSelector((state) => state.videos);
-  console.log('🚀 ~ file: index.tsx:28 ~ videosData:', videosData);
+  // console.log('🚀 ~ file: index.tsx:28 ~ videosData:', videosData);
   const { detailsData } = useAppSelector((state) => state.details);
 
   useEffect(() => {
@@ -64,9 +62,11 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
           <span className={s.detailsContentTagline}>{detailsData?.tagline}</span>
           <p className={s.detailsContentDescription}>{detailsData?.overview}</p>
           <div className={s.detailsContentContainer}>
-            <div className={s.detailsContentDuration}>
-              {detailsData?.runtime && convertDuration(detailsData?.runtime)}
-            </div>
+            {detailsData?.runtime && (
+              <div className={s.detailsContentDuration}>
+                {convertDuration(detailsData?.runtime)}
+              </div>
+            )}
             <div
               className={s.detailsContentRating}
               style={{ color: detailsData && detailsData?.vote_average > 6 ? 'green' : 'red' }}

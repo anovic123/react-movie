@@ -5,7 +5,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 import { useNavigate } from 'react-router-dom';
 import LazyLoad from 'react-lazy-load';
 
-import { Skeleton } from '../skeleton';
+import { SkeletonSlider } from '../';
 
 import { MovieTypeResult } from '../../common/types/movies';
 
@@ -39,7 +39,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
 
   const skeletons = [...new Array(10)].map((_) => (
     <SwiperSlide key={v1()} className={s.movieSliderSlide}>
-      <Skeleton />
+      <SkeletonSlider />
     </SwiperSlide>
   ));
 

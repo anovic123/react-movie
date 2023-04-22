@@ -1,6 +1,6 @@
 import { FC, useEffect } from 'react';
 
-import { VideoPlayer } from '../video-player';
+import { VideoPlayer } from '../';
 
 import { VideosType } from '../../common/types/videos';
 

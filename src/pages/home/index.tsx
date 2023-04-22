@@ -1,7 +1,6 @@
 import { FC, useState, useEffect } from 'react';
 
-import { Banner } from '../../components/banner';
-import { MovieSlider } from '../../components/movie-slider';
+import { Banner, MovieSlider } from '../../components';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 

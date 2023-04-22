@@ -1,11 +1,8 @@
 import { FC, useEffect } from 'react';
 import { v1 } from 'uuid';
 
-import { Card } from '../../components/card';
+import { Card, Pagination, Slider } from '../../components';
 import { SkeletonCard } from '../../components/card/skeleton-card';
-import { Pagination } from '../../components/pagination';
-
-import { Slider } from '../../components/slider';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
