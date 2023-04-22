@@ -106,7 +106,7 @@ export interface ResultViews {
 export interface AuthorDetails {
   name: string
   username: string
-  avatar_path?: string
+  avatar_path: string
   rating?: number
 }
 

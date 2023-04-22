@@ -9,6 +9,7 @@ import { ResultViews } from '../../common/types/details';
 import { convertDate } from '../../utils/convertDate';
 
 import s from './reviews.module.scss';
+import { checkUrl } from '../../utils/checkUrl';
 
 interface ReviewsProps {
   currentPage: number;
@@ -18,7 +19,6 @@ interface ReviewsProps {
 }
 
 export const Reviews: FC<ReviewsProps> = ({ currentPage, totalPages, data, handleLoadMore }) => {
-
   return (
     <div className={s.reviews}>
       <h2 className={s.reviewsTitle}>Reviews</h2>
@@ -32,7 +32,10 @@ export const Reviews: FC<ReviewsProps> = ({ currentPage, totalPages, data, handl
           return (
             <div className={s.review} key={v1()}>
               <div className={s.reviewAvatar}>
-                <img src={avatar_path ? imgUrl : pureImagePath} className={s.reviewAvatarImage} />
+                <img
+                  src={avatar_path ? checkUrl(imgUrl) : pureImagePath}
+                  className={s.reviewAvatarImage}
+                />
               </div>
 
               <div className={s.reviewContent}>
