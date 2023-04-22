@@ -1,0 +1,39 @@
+.reviews {
+  margin-bottom: 1.25rem;
+  &Title {
+    font-size: 1.875rem;
+    margin-bottom: 1.5625rem;
+  }
+  &Inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.25rem;
+  }
+  &Button {
+    margin: 0 auto;
+  }
+}
+
+.review {
+  display: flex;
+  column-gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  &AvatarImage {
+    height: 4.375rem;
+    width: 4.375rem;
+    border-radius: 50%;
+    margin-bottom: 0.625rem;
+  }
+  &Header {
+    display: flex;
+    align-items: center;
+    column-gap: 0.625rem;
+  }
+  &Author {
+    font-size: 1.1875rem;
+  }
+  &Rating {
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+}

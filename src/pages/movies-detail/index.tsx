@@ -4,10 +4,11 @@ import { AiFillStar, AiFillPlayCircle } from 'react-icons/ai';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
-import { getDetails } from '../../store/thunks/details';
+import { getDetails, getReviews } from '../../store/thunks/details';
 import { getVideos } from '../../store/thunks/videos';
 
 import { Casts, Button, Modal } from '../../components';
+import { Reviews } from '../../components/reviews';
 
 import { imageUrl } from '../../utils/constants';
 import { convertDuration } from '../../utils/convertDuration';
@@ -23,8 +24,7 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   const [activeModal, setActiveModal] = useState<boolean>(false);
 
   const { videosData } = useAppSelector((state) => state.videos);
-  // console.log('🚀 ~ file: index.tsx:28 ~ videosData:', videosData);
-  const { detailsData } = useAppSelector((state) => state.details);
+  const { detailsData, reviewsData } = useAppSelector((state) => state.details);
 
   useEffect(() => {
     if (!id) {
@@ -32,7 +32,13 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
     }
     dispatch(getDetails({ id, type: category || 'movie' }));
     dispatch(getVideos(Number(id)));
-  }, [id]);
+    dispatch(getReviews({ id, type: category || 'movie', page: 1 }));
+  }, [id, category, dispatch]);
+
+  const handleLoadMore = () => {
+    // @ts-ignore
+    dispatch(getReviews({ id, type: category || 'movie', page: reviewsData.page + 1 }));
+  };
 
   return (
     <section className={s.details}>
@@ -94,6 +100,15 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
           )}
           {detailsData?.id && <Casts id={detailsData?.id} />}
         </div>
+      </div>
+
+      <div className={s.detailsReviewsContainer}>
+        <Reviews
+          currentPage={reviewsData.page}
+          totalPages={reviewsData.total_pages}
+          data={reviewsData.results}
+          handleLoadMore={handleLoadMore}
+        />
       </div>
       {videosData && (
         <Modal data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />

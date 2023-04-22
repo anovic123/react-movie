@@ -1,0 +1,16 @@
+.text {
+  font-size: 1.3125rem;
+  line-height: 1.5;
+  margin-bottom: .625rem;
+}
+
+.more {
+  color: rgb(255, 0, 0);
+  cursor: pointer;
+  display: block;
+  margin-top: .5rem;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    color: rgb(179, 5, 5);
+  }
+}

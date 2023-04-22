@@ -32,3 +32,19 @@ export const getCredits = createAsyncThunk(
     }
   }
 )
+
+export const getReviews = createAsyncThunk(
+  'get-reviews',
+  async ({ id, type, page }: { id: string, type: string, page: number }, { rejectWithValue }) => {
+    try {
+      const response = await api.get(`${type}/${id}/reviews?api_key=${import.meta.env.VITE_API_KEY}&page=${page}`)
+      return response.data
+    } catch (error: any) {
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+)
