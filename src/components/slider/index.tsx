@@ -31,7 +31,6 @@ export const Slider: FC<TvSliderProps> = ({ data, loading, type }) => {
         className={s.tvSliderImg}
         onClick={() => navigate(`/${type}/${el?.id}`)}
       />
-      {/* @ts-ignore */}
       <h3 className={s.tvSliderTitle}>{el?.name || el?.title}</h3>
     </SwiperSlide>
   ));

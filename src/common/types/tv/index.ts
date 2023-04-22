@@ -11,6 +11,7 @@ export interface Result {
   genre_ids: number[]
   id: number
   name: string
+  title?: string
   origin_country: string[]
   original_language: string
   original_name: string

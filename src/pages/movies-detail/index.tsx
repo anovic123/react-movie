@@ -86,7 +86,6 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
           {videosData && (
             <Button
               onClick={() => setActiveModal(true)}
-              size="small"
               variant="border"
               startIcon={<AiFillPlayCircle />}
             >

@@ -9,10 +9,6 @@ type ButtonSize = 'small' | 'medium';
 interface ButtonProps
   extends DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
   /**
-   * size
-   */
-  size: ButtonSize;
-  /**
    *  start icon
    */
   startIcon?: ReactNode;
@@ -31,7 +27,6 @@ export const Button: FC<ButtonProps> = ({
   variant = 'border',
   startIcon,
   endIcon,
-  size,
   onClick,
   ...props
 }) => {

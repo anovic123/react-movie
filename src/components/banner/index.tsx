@@ -55,7 +55,6 @@ export const Banner: FC<BannerProps> = ({}) => {
               {videosData && (
                 <Button
                   onClick={() => setActiveModal(true)}
-                  size="small"
                   variant="border"
                   startIcon={<AiFillPlayCircle />}
                 >
@@ -63,7 +62,6 @@ export const Banner: FC<BannerProps> = ({}) => {
                 </Button>
               )}
               <Button
-                size="small"
                 variant="primary"
                 startIcon={<AiFillInfoCircle />}
                 onClick={() => navigate(`/movie/${randomMovie?.id}`)}
