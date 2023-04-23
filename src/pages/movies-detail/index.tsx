@@ -4,11 +4,10 @@ import { AiFillStar, AiFillPlayCircle } from 'react-icons/ai';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
-import { getDetails, getReviews } from '../../store/thunks/details';
+import { getDetails, getReviews, postMovie } from '../../store/thunks/details';
 import { getVideos } from '../../store/thunks/videos';
 
-import { Casts, Button, Modal } from '../../components';
-import { Reviews } from '../../components/reviews';
+import { Casts, Button, Modal, Reviews, Rating } from '../../components';
 
 import { imageUrl } from '../../utils/constants';
 import { convertDuration } from '../../utils/convertDuration';
@@ -22,6 +21,7 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   const dispatch = useAppDispatch();
 
   const [activeModal, setActiveModal] = useState<boolean>(false);
+  const [rating, setRating] = useState<number>(0);
 
   const { videosData } = useAppSelector((state) => state.videos);
   const { detailsData, reviewsData } = useAppSelector((state) => state.details);
@@ -36,9 +36,18 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   }, [id, category, dispatch]);
 
   const handleLoadMore = () => {
-    // @ts-ignore
+    if (!id) {
+      return;
+    }
     dispatch(getReviews({ id, type: category || 'movie', page: reviewsData.page + 1 }));
   };
+
+  // const handleVote = () => {
+  //   if (!id) {
+  //     return;
+  //   }
+  //   dispatch(postMovie({ id, type: category || 'movie', params: rating }));
+  // };
 
   return (
     <section className={s.details}>
@@ -81,6 +90,12 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
               {detailsData?.vote_average?.toFixed(2)}
             </div>
           </div>
+          <div className={s.detailsRating}>
+            {detailsData?.vote_average && (
+              <Rating rating={detailsData?.vote_average} setRating={setRating} />
+            )}
+          </div>
+
           <div className={s.detailsContentContainer}>
             {detailsData?.genres &&
               detailsData?.genres.map((genre) => (
@@ -89,6 +104,7 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
                 </div>
               ))}
           </div>
+
           {videosData && (
             <Button
               onClick={() => setActiveModal(true)}

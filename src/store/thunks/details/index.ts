@@ -48,3 +48,19 @@ export const getReviews = createAsyncThunk(
     }
   }
 )
+
+export const postMovie = createAsyncThunk(
+  'rate-movie',
+  async ({ id, type, params }: { id: string, type: string, params: any }, { rejectWithValue }) => {
+    try {
+      const response = api.post(`${type}/${id}/rating?api_key=${import.meta.env.VITE_API_KEY}`, params)
+      return response;
+    } catch (error: any) {
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+)

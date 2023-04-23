@@ -7,4 +7,6 @@ export * from './pagination';
 export * from './skeleton-slider';
 export * from './slider';
 export * from './video-player';
+export * from './reviews';
+export * from './rating';
 export * from './ui/button';

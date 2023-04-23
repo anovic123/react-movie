@@ -1,9 +1,9 @@
 .btn {
   cursor: pointer;
-  padding: .1875rem .625rem;
+  padding: 0.1875rem 0.625rem;
   outline: none;
-  border-radius: .25rem;
-  border: .25rem solid transparent;
+  border-radius: 0.25rem;
+  border: 0.25rem solid transparent;
   width: max-content;
   font-size: 1.25rem;
   font-weight: 600;
@@ -13,7 +13,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: .3125rem;
+  gap: 0.3125rem;
   background-color: #ec0909;
   color: #fff;
 
@@ -29,7 +29,7 @@
   &Primary {
     color: #fff;
     background-color: rgba(216, 213, 213, 0.75);
-    box-shadow: 0 .0625rem .125rem rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.0625rem 0.125rem rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease 0s;
 
     &:not(:disabled):hover {
@@ -40,5 +40,6 @@
 
   &:disabled {
     background: rgb(155, 81, 81);
+    cursor: not-allowed;
   }
 }
