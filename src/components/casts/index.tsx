@@ -7,6 +7,8 @@ import { getCredits } from '../../store/thunks/details';
 
 import { imageUrl } from '../../utils/constants';
 
+import PureCast from '../../assets/pure-cast.png';
+
 import s from './casts.module.scss';
 
 interface CastsProps {
@@ -28,8 +30,7 @@ export const Casts: FC<CastsProps> = ({ id }) => {
       <div className={s.castList}>
         {creditsData?.cast?.slice(0, 4).map(({ id, name, character, profile_path }) => {
           const imageUrlPath = `url(${imageUrl}${profile_path})`;
-          const pureImagePath =
-            'url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlscp4xS0pQIkLFrSNCWhBGKTd_RR22pN9qy67ZJE7MielecRwJqHjnvBBrEbLCyUateE&usqp=CAU)';
+          const pureImagePath = `url(${PureCast})`;
 
           return (
             <Link key={id} to="#" className={s.castItem}>

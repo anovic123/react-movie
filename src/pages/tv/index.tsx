@@ -10,6 +10,8 @@ import { getTvPopular } from '../../store/thunks/tv';
 
 import { imageUrl } from '../../utils/constants';
 
+import PureImg from '../../assets/pure-img.png';
+
 import s from './tv.module.scss';
 
 interface TvPageProps {}
@@ -35,14 +37,12 @@ export const TvPage: FC<TvPageProps> = ({}) => {
 
   const cards = popularTvData?.results?.map((res) => {
     const posterUrlPath = `${imageUrl}${res.backdrop_path}`;
-    const pureImagePath =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbXT6DnGwfnXB4fCsGKb2tG4p4ulnX0JR-w&usqp=CAU';
 
     return (
       <Card
         key={res.id}
         id={res.id}
-        poster={res.backdrop_path === null ? pureImagePath : posterUrlPath}
+        poster={res.backdrop_path === null ? PureImg : posterUrlPath}
         title={res.name}
         rating={res.vote_average}
         type="tv"

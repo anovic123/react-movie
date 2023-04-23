@@ -47,6 +47,7 @@ export const Header: FC<HeaderProps> = ({}) => {
           <button
             className={`${s.burgerMenu} ${menuOpen && s.burgerMenuOpen}`}
             onClick={handleToggleMenu}
+            aria-label="Burger Menu Button"
           >
             <span></span>
             <span></span>

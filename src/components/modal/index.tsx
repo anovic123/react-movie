@@ -13,18 +13,14 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ data, activeModal, setActiveModal }) => {
-  
   useEffect(() => {
-    if (activeModal) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      document.body.style.overflowY = 'hidden';
-    } else {
-      document.body.style.overflowY = 'auto';
-    }
+    activeModal
+      ? (window.scrollTo({ top: 0, behavior: 'smooth' }),
+        (document.body.style.overflowY = 'hidden'))
+      : (document.body.style.overflowY = 'auto');
   }, [activeModal]);
 
-  const videoUrlPath = `https://www.youtube.com/watch?v=${data?.key}`;
-  const pureVideoPath = 'https://www.youtube.com/watch?v=Bb87s3EfM1s';
+  const videoUrlPath = 'https://www.youtube.com/watch?v=';
 
   return (
     <div className={s.modal} style={{ display: activeModal ? 'block' : 'none' }}>
@@ -32,7 +28,9 @@ export const Modal: FC<ModalProps> = ({ data, activeModal, setActiveModal }) => 
         <button className={s.modalButton} onClick={() => setActiveModal(false)}>
           X
         </button>
-        <VideoPlayer url={!data?.key ? pureVideoPath : videoUrlPath} />
+        <VideoPlayer
+          url={data?.key ? `${videoUrlPath}${data?.key}` : `${videoUrlPath}Bb87s3EfM1s`}
+        />
       </div>
     </div>
   );

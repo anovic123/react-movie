@@ -118,14 +118,16 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
         </div>
       </div>
 
-      <div className={s.detailsReviewsContainer}>
-        <Reviews
-          currentPage={reviewsData.page}
-          totalPages={reviewsData.total_pages}
-          data={reviewsData.results}
-          handleLoadMore={handleLoadMore}
-        />
-      </div>
+      {reviewsData?.results?.length >= 1 && (
+        <div className={s.detailsReviewsContainer}>
+          <Reviews
+            currentPage={reviewsData.page}
+            totalPages={reviewsData.total_pages}
+            data={reviewsData.results}
+            handleLoadMore={handleLoadMore}
+          />
+        </div>
+      )}
       {videosData && (
         <Modal data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />
       )}

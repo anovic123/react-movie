@@ -10,6 +10,8 @@ import { getPlayingMovies } from '../../store/thunks/movies';
 
 import { imageUrl } from '../../utils/constants';
 
+import PureImg from '../../assets/pure-img.png';
+
 import s from './movies.module.scss';
 
 interface MoviesProps {}
@@ -35,14 +37,12 @@ export const MoviesPage: FC<MoviesProps> = ({}) => {
 
   const cards = playingMovies?.results?.map((res) => {
     const posterUrlPath = `${imageUrl}${res.backdrop_path}`;
-    const pureImagePath =
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbXT6DnGwfnXB4fCsGKb2tG4p4ulnX0JR-w&usqp=CAU';
 
     return (
       <Card
         key={res.id}
         id={res.id}
-        poster={res.backdrop_path === null ? pureImagePath : posterUrlPath}
+        poster={res.backdrop_path === null ? PureImg : posterUrlPath}
         title={res.title}
         rating={res.vote_average}
         type="movie"
@@ -60,7 +60,6 @@ export const MoviesPage: FC<MoviesProps> = ({}) => {
         type="movie"
       />
       <div className={s.moviesContainer}>
-
         <ul className={s.moviesList}>{playingMoviesLoading ? skeletons : cards}</ul>
         {!playingMoviesLoading && (
           <Pagination

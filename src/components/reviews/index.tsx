@@ -7,9 +7,12 @@ import { Button } from '../ui/button';
 import { ResultViews } from '../../common/types/details';
 
 import { convertDate } from '../../utils/convertDate';
+import { checkUrl } from '../../utils/checkUrl';
+
+import PureReviews from '../../assets/pure-reviews.png';
 
 import s from './reviews.module.scss';
-import { checkUrl } from '../../utils/checkUrl';
+
 
 interface ReviewsProps {
   currentPage: number;
@@ -26,14 +29,12 @@ export const Reviews: FC<ReviewsProps> = ({ currentPage, totalPages, data, handl
         {data?.map(({ author_details: { name, rating, avatar_path }, content, created_at }) => {
           console.log(avatar_path);
           const imgUrl = avatar_path?.substring(1);
-          const pureImagePath =
-            'https://static.vecteezy.com/system/resources/thumbnails/021/548/095/small/default-profile-picture-avatar-user-avatar-icon-person-icon-head-icon-profile-picture-icons-default-anonymous-user-male-and-female-businessman-photo-placeholder-social-network-avatar-portrait-free-vector.jpg';
 
           return (
             <div className={s.review} key={v1()}>
               <div className={s.reviewAvatar}>
                 <img
-                  src={avatar_path ? checkUrl(imgUrl) : pureImagePath}
+                  src={avatar_path ? checkUrl(imgUrl) : PureReviews}
                   className={s.reviewAvatarImage}
                 />
               </div>
