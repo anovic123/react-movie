@@ -37,7 +37,7 @@ export const getReviews = createAsyncThunk(
   'get-reviews',
   async ({ id, type, page }: { id: string, type: string, page: number }, { rejectWithValue }) => {
     try {
-      const response = await api.get(`${type}/${id}/reviews`)
+      const response = await api.get(`${type}/${id}/reviews?page=${page}`)
       return response.data
     } catch (error: any) {
       if (error.response && error.response.data.message) {
