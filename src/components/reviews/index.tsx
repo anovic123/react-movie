@@ -27,7 +27,6 @@ export const Reviews: FC<ReviewsProps> = ({ currentPage, totalPages, data, handl
       <h2 className={s.reviewsTitle}>Reviews</h2>
       <div className={s.reviewsInner}>
         {data?.map(({ author_details: { name, rating, avatar_path }, content, created_at }) => {
-          console.log(avatar_path);
           const imgUrl = avatar_path?.substring(1);
 
           return (

@@ -1,4 +1,4 @@
-import { FC, useRef, useState } from 'react';
+import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v1 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,6 +7,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Lazy } from 'swipe
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { SkeletonSlider } from '../';
+import { CircleRating } from '../circle-rating';
 
 import { MovieTypeResult } from '../../common/types/movies';
 
@@ -41,11 +42,13 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
         className={s.movieSliderLoader}
         effect="blur"
         onClick={() => navigate(`/${type}/${movie.id}`)}
-        src={`${imageUrl}${movie.poster_path}`}
+        src={`${imageUrl}${movie?.poster_path}`}
         beforeLoad={() => setImageLoaded(true)}
       />
+      {imageLoaded && <CircleRating className={s.movieSliderRating} rating={movie?.vote_average} />}
     </SwiperSlide>
   ));
+
   return (
     <>
       <h2 className={s.movieSliderTitle}>{!loading && title}</h2>
@@ -76,58 +79,4 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
       </Swiper>
     </>
   );
-  //========================================================================================================================================================
-
-  // const carouselContainer = useRef<HTMLDivElement>(null);
-
-  // const navigation = (dir: any) => {
-  //   const container = carouselContainer?.current;
-
-  //   const scrollAmount =
-  //     dir === 'left'
-  //       ? //@ts-ignore
-  //         container?.scrollLeft - (container?.offsetWidth + 20)
-  //       : //@ts-ignore
-  //         container?.scrollLeft + (container?.offsetWidth + 20);
-
-  //   // @ts-ignore
-  //   container.scrollTo({
-  //     left: scrollAmount,
-  //     behavior: 'smooth',
-  //   });
-  // };
-
-  // return (
-  //   <div className="carousel">
-  //     <BsFillArrowLeftCircleFill
-  //       className="carouselLeftNav arrow"
-  //       onClick={() => navigation('left')}
-  //     />
-  //     <BsFillArrowRightCircleFill
-  //       className="carouselRighttNav arrow"
-  //       onClick={() => navigation('right')}
-  //     />
-  //     <div>
-  //       {!loading ? (
-  //         <div style={{ display: 'flex' }} ref={carouselContainer}>
-  //           {data.map((el: any) => (
-  //             <img
-  //               className={s.movieSliderLoader}
-  //               src={`${imageUrl}${el.poster_path}`}
-  //               style={{ height: 200, width: 200 }}
-  //             />
-  //           ))}
-  //         </div>
-  //       ) : (
-  //         <div style={{ display: 'flex' }}>
-  //           <SkeletonSlider />
-  //           <SkeletonSlider />
-  //           <SkeletonSlider />
-  //           <SkeletonSlider />
-  //           <SkeletonSlider />
-  //         </div>
-  //       )}
-  //     </div>
-  //   </div>
-  // );
 };
