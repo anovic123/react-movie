@@ -5,7 +5,7 @@ export const getDetails = createAsyncThunk(
   'get-details',
   async ({ id, type }: { id: string, type: string }, { rejectWithValue }) => {
     try {
-      const response = await api.get(`${type}/${id}?api_key=${import.meta.env.VITE_API_KEY}`)
+      const response = await api.get(`${type}/${id}`)
       return response.data;
     } catch (error: any) {
       if (error.response && error.response.data.message) {
@@ -21,7 +21,7 @@ export const getCredits = createAsyncThunk(
   'get-credits',
   async (id: any, { rejectWithValue }) => {
     try {
-      const response = await api.get(`movie/${id}/credits?api_key=${import.meta.env.VITE_API_KEY}`)
+      const response = await api.get(`movie/${id}/credits`)
       return response.data;
     } catch (error: any) {
       if (error.response && error.response.data.message) {
@@ -37,7 +37,7 @@ export const getReviews = createAsyncThunk(
   'get-reviews',
   async ({ id, type, page }: { id: string, type: string, page: number }, { rejectWithValue }) => {
     try {
-      const response = await api.get(`${type}/${id}/reviews?api_key=${import.meta.env.VITE_API_KEY}&page=${page}`)
+      const response = await api.get(`${type}/${id}/reviews`)
       return response.data
     } catch (error: any) {
       if (error.response && error.response.data.message) {
@@ -53,7 +53,7 @@ export const postMovie = createAsyncThunk(
   'rate-movie',
   async ({ id, type, params }: { id: string, type: string, params: any }, { rejectWithValue }) => {
     try {
-      const response = api.post(`${type}/${id}/rating?api_key=${import.meta.env.VITE_API_KEY}`, params)
+      const response = api.post(`${type}/${id}/rating`, params)
       return response;
     } catch (error: any) {
       if (error.response && error.response.data.message) {

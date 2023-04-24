@@ -3,7 +3,7 @@ import { api } from "../../../utils/axios";
 
 export const getTvPopular = createAsyncThunk('get-tv-popular', async (page: number, { rejectWithValue}) => {
   try {
-    const response = await api.get(`tv/popular?api_key=${import.meta.env.VITE_API_KEY}&language=en-US&page=${page}`)
+    const response = await api.get(`tv/popular?language=en-US&page=${page}`)
     return response.data;
   } catch (error: any) {
     if (error.response && error.response.data.message) {

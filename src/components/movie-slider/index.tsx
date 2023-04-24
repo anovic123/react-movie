@@ -1,9 +1,10 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { v1 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import { useNavigate } from 'react-router-dom';
-import LazyLoad from 'react-lazy-load';
+
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { SkeletonSlider } from '../';
 
@@ -12,6 +13,7 @@ import { MovieTypeResult } from '../../common/types/movies';
 import { imageUrl } from '../../utils/constants';
 
 import s from './movie-slider.module.scss';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 
@@ -27,13 +29,12 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
 
   const movies = data.map((movie) => (
     <SwiperSlide key={v1()} className={s.movieSliderSlide}>
-      <LazyLoad className={s.movieSliderLoader}>
-        <img
-          onClick={() => navigate(`/${type}/${movie.id}`)}
-          src={`${imageUrl}${movie.poster_path}`}
-          loading="lazy"
-        />
-      </LazyLoad>
+      <LazyLoadImage
+        className={s.movieSliderLoader}
+        effect="blur"
+        onClick={() => navigate(`/${type}/${movie.id}`)}
+        src={`${imageUrl}${movie.poster_path}`}
+      ></LazyLoadImage>
     </SwiperSlide>
   ));
 
