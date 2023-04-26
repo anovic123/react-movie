@@ -8,7 +8,7 @@
 
 ## Использованные библиотеки и технологии:
 
-React, Axios, @reduxjs/toolkit, React-Redux, Classnames, React-Content-Loader, React-Icons, React-Lazy-Load, React-Player, React-Router-Dom, Sass, Swiper, UUID.
+React, Axios, @reduxjs/toolkit, React-Redux, Classnames, React-Content-Loader, React-Icons, React-Lazy-Load-Image-Component, React-Player, React-Router-Dom, Sass, Swiper, UUID.
 
 ## Как работает проект
 
