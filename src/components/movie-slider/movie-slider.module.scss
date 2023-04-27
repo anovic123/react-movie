@@ -39,8 +39,10 @@
     position: absolute;
     bottom: 1.25rem;
     right: 0.3125rem;
-    height: 5rem;
-    width: 5rem;
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+    background-color: #ffffff;
     @media (max-width: 64rem) {
       height: 3.75rem;
       width: 3.75rem;

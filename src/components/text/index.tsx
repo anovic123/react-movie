@@ -13,15 +13,17 @@ export const Text: FC<TextProps> = ({ text }) => {
 
   return (
     <>
-      <div className={s.text}>
-        {!isOpen ? fullText : text}
-      </div>
-
-      {isOpen ? (
-        <span className={s.more} onClick={() => setOpen(false)}>Collapse</span>
-      ) : (
-        <span className={s.more} onClick={() => setOpen(true)}>Expand</span>
-      )}
+      <div className={s.text}>{!isOpen ? fullText : text}</div>
+      {!isFull &&
+        (isOpen ? (
+          <span className={s.more} onClick={() => setOpen(false)}>
+            Collapse
+          </span>
+        ) : (
+          <span className={s.more} onClick={() => setOpen(true)}>
+            Expand
+          </span>
+        ))}
     </>
   );
 };
