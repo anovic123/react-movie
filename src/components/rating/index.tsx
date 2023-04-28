@@ -22,7 +22,7 @@ export const Rating: FC<RatingProps> = ({
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(10).fill(<></>));
 
   useEffect(() => {
-    constructRating(rating);
+    constructRating(Math.floor(rating));
     // handleVote(rating);
   }, [rating]);
 

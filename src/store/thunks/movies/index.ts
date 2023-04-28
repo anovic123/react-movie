@@ -32,7 +32,7 @@ export const getHorrorMovies = createAsyncThunk('get-horror', async (_, { reject
 
 export const getComedyMovies = createAsyncThunk('get-comedy', async (_, { rejectWithValue }) => {
   try {
-    const response = await api.get(`/discover/movie?with_genres=28`)
+    const response = await api.get(`/discover/movie?with_genres=comedy`)
     return response.data.results;
   } catch (error: any) {
     if (error.response && error.response.data.message) {

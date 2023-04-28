@@ -60,10 +60,7 @@ export const Header: FC<HeaderProps> = ({}) => {
           }`}
         >
           {navMenu.map((el) => (
-            <li
-              key={el.id}
-              className={`${isMobile ? s.burgerMenuListLi : s.headerNavLi}`}
-            >
+            <li key={el.id} className={`${isMobile ? s.burgerMenuListLi : s.headerNavLi}`}>
               <Link
                 to={el.path}
                 onClick={() => setActiveLink(el.id)}
