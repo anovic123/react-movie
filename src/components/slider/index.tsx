@@ -25,7 +25,7 @@ export const Slider: FC<TvSliderProps> = ({ data, loading, type }) => {
   const navigate = useNavigate();
 
   const sliderImages = data?.map((el) => (
-    <SwiperSlide className={s.tvSliderItem}>
+    <SwiperSlide className={s.tvSliderItem} key={el.id}>
       <img
         src={`${imageUrl}${el?.backdrop_path}`}
         className={s.tvSliderImg}

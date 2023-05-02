@@ -50,7 +50,11 @@ export const Banner: FC<BannerProps> = ({}) => {
         <div className={s.bannerContainer}>
           <div className={s.bannerContent}>
             <h1 className={s.bannerContentTitle}>{randomMovie?.title}</h1>
-            <p className={s.bannerContentDescription}>{randomMovie?.overview}</p>
+            <p className={s.bannerContentDescription}>
+              {randomMovie?.overview.length > 450
+                ? randomMovie?.overview.slice(0, 450) + '...'
+                : randomMovie?.overview}
+            </p>
             <div className={s.bannerContentActions}>
               {videosData && (
                 <Button
@@ -74,11 +78,7 @@ export const Banner: FC<BannerProps> = ({}) => {
         <div className={s.bannerBlur} />
       </div>
       {videosData && (
-        <Modal
-          data={videosData[0]}
-          activeModal={activeModal}
-          setActiveModal={setActiveModal}
-        />
+        <Modal data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />
       )}
     </>
   );
