@@ -6,6 +6,7 @@ import { useMediaQuery } from '../../hooks/use-media-query';
 import { navMenu } from '../../common/mocks/navigate';
 
 import s from './header.module.scss';
+import { ROUTES } from '../../utils/routes';
 
 interface HeaderProps {}
 
@@ -40,7 +41,7 @@ export const Header: FC<HeaderProps> = ({}) => {
   return (
     <header ref={headerRef} className={s.header}>
       <div className={s.headerContainer}>
-        <Link to="/" className={s.headerLogo}>
+        <Link to={ROUTES.HOME} className={s.headerLogo}>
           React Movies
         </Link>
         {isMobile && (
