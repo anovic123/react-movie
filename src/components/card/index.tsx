@@ -27,7 +27,12 @@ export const Card: FC<CardProps> = ({ id, poster, title, rating, type }) => {
   return (
     <li className={s.tvCard} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <div className={s.tvCardPosterContainer} onClick={() => navigate(`/${type}/${id}`)}>
-        <LazyLoadImage src={poster} alt={title} className={s.tvCardPoster} />
+        <LazyLoadImage
+          src={poster}
+          alt={title}
+          className={s.tvCardPoster}
+          effect="black-and-white"
+        />
 
         <div className={`${s.tvCardDetails} ${isDetailsVisible ? s.visible : ''}`}>
           <div className={s.tvCardTitle}>{title}</div>

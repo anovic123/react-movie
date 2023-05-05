@@ -51,8 +51,8 @@ export const Banner: FC<BannerProps> = ({}) => {
           <div className={s.bannerContent}>
             <h1 className={s.bannerContentTitle}>{randomMovie?.title}</h1>
             <p className={s.bannerContentDescription}>
-              {randomMovie?.overview.length > 450
-                ? randomMovie?.overview.slice(0, 450) + '...'
+              {randomMovie?.overview.length > 400
+                ? randomMovie?.overview.slice(0, 400) + '...'
                 : randomMovie?.overview}
             </p>
             <div className={s.bannerContentActions}>

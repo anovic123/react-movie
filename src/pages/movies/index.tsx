@@ -60,7 +60,7 @@ export const MoviesPage: FC<MoviesProps> = ({}) => {
         type="movie"
       />
       <div className={s.moviesContainer}>
-        <ul className={s.moviesList}>{playingMoviesLoading ? skeletons : cards}</ul>
+        <ul className={s.moviesList}>{playingMoviesLoading ? skeletons : cards?.slice(0, 10)}</ul>
         {!playingMoviesLoading && (
           <Pagination
             currentPage={playingMovies.page}

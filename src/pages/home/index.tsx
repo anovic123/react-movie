@@ -49,26 +49,26 @@ export const HomePage: FC<HomePageProps> = ({}) => {
         title="Netflix Original"
         type="tv"
         data={netflixMovies}
-        loading={comedyMoviesLoading}
+        loading={netflixMoviesLoading}
       />
       <MovieSlider title="Horror" type="movie" data={horrorMovies} loading={horrorMoviesLoading} />
       <MovieSlider
         title="Comedy"
         type="movie"
         data={comedyMovies}
-        loading={documentaryMoviesLoading}
+        loading={comedyMoviesLoading}
       />
       <MovieSlider
         title="Romance"
         type="movie"
         data={romanceMovies}
-        loading={netflixMoviesLoading}
+        loading={romanceMoviesLoading}
       />
       <MovieSlider
         title="Documentary"
         type="movie"
         data={documentaryMovies}
-        loading={romanceMoviesLoading}
+        loading={documentaryMoviesLoading}
       />
     </section>
   );

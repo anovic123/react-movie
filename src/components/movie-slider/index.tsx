@@ -2,7 +2,7 @@ import { FC, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { v1 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Lazy } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
@@ -75,7 +75,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
           },
         }}
       >
-        {loading && !imageLoaded ? skeletons : <>{movies}</>}
+        {loading && !!imageLoaded ? skeletons : <>{movies}</>}
       </Swiper>
     </>
   );

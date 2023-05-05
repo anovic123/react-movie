@@ -5,4 +5,4 @@ export const ROUTES = {
   TV: '/tv',
   NOT_FOUND: '*',
   NEW_AND_POPULAR: '/new-and-popular'
-}
+} as const
