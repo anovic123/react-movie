@@ -1,5 +1,5 @@
 .movieSlider {
-  margin-bottom: 1.25rem;
+  margin: -0.625rem 0 1.25rem 0;
   &Title {
     padding: 0 0.625rem;
     font-size: 3.125rem;
@@ -11,20 +11,23 @@
   }
   &Slide {
     position: relative;
+    aspect-ratio: 1 / 1.5;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 0.3125rem;
     overflow: hidden;
     cursor: pointer;
-    margin: 0 0.3125rem;
     transition: all 450ms !important;
+
     &:hover {
       transform: scale(0.98);
     }
   }
   &Loader {
     border-radius: 0.3125rem;
-    display: block;
-    object-fit: contain;
-    height: 31.25rem;
-
+    position: relative;
     @media (max-width: 78.125rem) {
       height: 25rem;
     }
@@ -47,10 +50,10 @@
       height: 3.75rem;
       width: 3.75rem;
     }
+    @media (max-width: 26.5625rem) {
+      height: 3.125rem;
+      width: 3.125rem;
+      bottom: 0.625rem;
+    }
   }
-}
-
-.lazy-load-image-background.blur.lazy-load-image-loaded > img {
-  opacity: 1;
-  transition: opacity 0.3s;
 }

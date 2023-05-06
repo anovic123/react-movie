@@ -13,7 +13,10 @@ interface HeaderProps {}
 export const Header: FC<HeaderProps> = ({}) => {
   const headerRef = useRef<HTMLDivElement>(null);
 
-  const [activeLink, setActiveLink] = useState<number>(157);
+  const path = window.location.pathname;
+
+  const [activeLink, setActiveLink] = useState<string>(path);
+
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const isMobile = useMediaQuery(768);
@@ -34,6 +37,12 @@ export const Header: FC<HeaderProps> = ({}) => {
     };
   }, []);
 
+  useEffect(() => {
+    menuOpen
+      ? (window.document.body.style.overflowY = 'hidden')
+      : (window.document.body.style.overflowY = 'auto');
+  }, [menuOpen]);
+
   const handleToggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -41,7 +50,7 @@ export const Header: FC<HeaderProps> = ({}) => {
   return (
     <header ref={headerRef} className={s.header}>
       <div className={s.headerContainer}>
-        <Link to={ROUTES.HOME} className={s.headerLogo}>
+        <Link to={ROUTES.HOME} className={s.headerLogo} onClick={() => setActiveLink('/')}>
           React Movies
         </Link>
         {isMobile && (
@@ -64,8 +73,8 @@ export const Header: FC<HeaderProps> = ({}) => {
             <li key={el.id} className={`${isMobile ? s.burgerMenuListLi : s.headerNavLi}`}>
               <Link
                 to={el.path}
-                onClick={() => setActiveLink(el.id)}
-                className={`${el.id === activeLink ? s.activeLink : ''}`}
+                onClick={() => setActiveLink(el.path)}
+                className={`${el.path === activeLink ? s.activeLink : ''}`}
               >
                 {el.title}
               </Link>

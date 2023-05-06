@@ -12,12 +12,16 @@ import { Modal, Button } from '../';
 
 import { imageUrl } from '../../utils/constants';
 
+import { useMediaQuery } from '../../hooks/use-media-query';
+
 import s from './banner.module.scss';
 
 interface BannerProps {}
 
 export const Banner: FC<BannerProps> = ({}) => {
   const [activeModal, setActiveModal] = useState<boolean>(false);
+
+  const isTablet = useMediaQuery(768);
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -39,6 +43,14 @@ export const Banner: FC<BannerProps> = ({}) => {
     }
   }, [randomMovie?.id]);
 
+  const bannerText = !isTablet
+    ? randomMovie?.overview.length > 400
+      ? randomMovie?.overview.slice(0, 400) + '...'
+      : randomMovie?.overview
+    : randomMovie?.overview.length > 150
+    ? randomMovie?.overview.slice(0, 150) + '...'
+    : randomMovie?.overview;
+
   return (
     <>
       <div
@@ -50,11 +62,7 @@ export const Banner: FC<BannerProps> = ({}) => {
         <div className={s.bannerContainer}>
           <div className={s.bannerContent}>
             <h1 className={s.bannerContentTitle}>{randomMovie?.title}</h1>
-            <p className={s.bannerContentDescription}>
-              {randomMovie?.overview.length > 400
-                ? randomMovie?.overview.slice(0, 400) + '...'
-                : randomMovie?.overview}
-            </p>
+            <p className={s.bannerContentDescription}>{bannerText}</p>
             <div className={s.bannerContentActions}>
               {videosData && (
                 <Button

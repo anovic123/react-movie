@@ -42,7 +42,7 @@ export const HomePage: FC<HomePageProps> = ({}) => {
 
   return (
     <section className={s.home}>
-      <div className={s.homeSlider}>
+      <div className={s.homeBanner}>
         <Banner />
       </div>
       <MovieSlider

@@ -62,7 +62,7 @@ export const PopularPage: FC<PopularPageProps> = ({}) => {
         type="movie"
       />
       <div className={s.popularContainer}>
-        <ul className={s.popularList}>{popularMoviesLoading ? skeletons : cards}</ul>
+        <ul className={s.popularList}>{popularMoviesLoading ? skeletons : cards?.slice(0, 10)}</ul>
         {!popularMoviesLoading && (
           <Pagination
             currentPage={popularMovies.page}

@@ -60,7 +60,7 @@ export const TvPage: FC<TvPageProps> = ({}) => {
         type="tv"
       />
       <div className={s.tvContainer}>
-        <ul className={s.tvList}>{popularTvDataLoading ? skeletons : cards}</ul>
+        <ul className={s.tvList}>{popularTvDataLoading ? skeletons : cards?.slice(0, 10)}</ul>
         {!popularTvDataLoading && (
           <Pagination
             currentPage={popularTvData.page}

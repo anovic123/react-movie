@@ -8,6 +8,19 @@
   background-repeat: no-repeat;
 
   position: relative;
+
+  @media (max-width: 64rem) {
+    padding: 8.5rem 0;
+  }
+
+  @media (max-width: 48rem) {
+    padding: 8.5rem 0 9.375rem 0;
+  }
+
+  @media (max-width: 26.5625rem) {
+    padding: 7.5rem 0 5.625rem 0;
+  }
+
   &Container {
     @include container;
   }
@@ -51,7 +64,7 @@
 
   &Blur {
     position: absolute;
-    bottom: 0;
+    bottom: -0.125rem;
     height: 5.5rem;
     width: 100%;
     background-image: linear-gradient(
@@ -62,7 +75,7 @@
       #060d17
     );
     @media (max-width: 48rem) {
-      height: 2rem;
+      height: 2.3rem;
     }
   }
 }

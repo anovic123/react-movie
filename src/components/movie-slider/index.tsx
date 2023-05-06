@@ -57,6 +57,9 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
         loop={true}
         className={s.movieSlider}
         breakpoints={{
+          2560: {
+            slidesPerView: 7,
+          },
           1350: {
             slidesPerView: 5,
             slidesPerGroup: 5,
@@ -71,7 +74,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
           },
           0: {
             slidesPerView: 2,
-            slidesPerGroup: 2,
+            slidesPerGroup: 1,
           },
         }}
       >
