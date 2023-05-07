@@ -134,9 +134,11 @@ export const CategoriesPage: FC<CategoriesPageProps> = ({}) => {
     );
   });
 
+  const sliderContent = data?.results?.filter((el: any) => el.backdrop_path !== undefined);
+
   return (
     <section className={s.tv}>
-      <Slider data={data?.results?.slice(0, 10)} loading={loading} type={typeLink} />
+      <Slider data={sliderContent?.slice(0, 10)} loading={loading} type={typeLink} />
       <div className={s.tvContainer}>
         <div className={s.tvList}>{loading ? skeletons : cards?.slice(0, 10)}</div>
         {!loading && data && (
