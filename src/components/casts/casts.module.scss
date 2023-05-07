@@ -8,6 +8,10 @@
     display: flex;
     column-gap: 1.25rem;
     flex-wrap: wrap;
+
+    @media (max-width: 850px) {
+      justify-content: center;
+    }
   }
   &Item {
     text-align: center;

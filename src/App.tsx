@@ -5,11 +5,8 @@ import { Layout } from './layout';
 
 import {
   HomePage,
-  MoviesPage,
   MoviesDetailPage,
   NotFoundPagePage,
-  TvPage,
-  PopularPage,
 } from './pages';
 import { CategoriesPage } from './pages/categories';
 
