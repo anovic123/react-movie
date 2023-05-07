@@ -30,7 +30,7 @@ export const ActorDetails: FC<ActorDetailsProps> = ({
         <li className={s.li}>
           Frame for: <span className={s.span}>{knownAs}</span>
         </li>
-        {alsoKnow.length > 1 && (
+        {alsoKnow?.length > 1 && (
           <li className={s.li}>
             Also know as:
             {alsoKnow?.map((el: string, index: number) => (
