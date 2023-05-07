@@ -3,7 +3,15 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Layout } from './layout';
 
-import { HomePage, MoviesPage, MoviesDetailPage, NotFoundPagePage, TvPage, PopularPage } from './pages';
+import {
+  HomePage,
+  MoviesPage,
+  MoviesDetailPage,
+  NotFoundPagePage,
+  TvPage,
+  PopularPage,
+} from './pages';
+import { CategoriesPage } from './pages/categories';
 
 import { ROUTES } from './utils/routes';
 
@@ -15,11 +23,9 @@ export const App: FC<AppProps> = ({}) => {
       <Routes>
         <Route element={<Layout />}>
           <Route path={ROUTES.HOME} element={<HomePage />} />
-          <Route path={ROUTES.MOVIES} element={<MoviesPage />} />
           <Route path={ROUTES.MOVIES_DETAIL} element={<MoviesDetailPage />} />
-          <Route path={ROUTES.TV} element={<TvPage />} />
-          <Route path={ROUTES.NEW_AND_POPULAR} element={<PopularPage />} />
           <Route path={ROUTES.NOT_FOUND} element={<NotFoundPagePage />} />
+          <Route path={ROUTES.CATEGORIES} element={<CategoriesPage />} />
         </Route>
       </Routes>
     </div>

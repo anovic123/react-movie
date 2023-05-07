@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { api } from "../../../utils/axios";
 
-export const getTvPopular = createAsyncThunk('get-tv-popular', async (page: number, { rejectWithValue}) => {
+export const  getTvPopular = createAsyncThunk('get-tv-popular', async (page: number = 1, { rejectWithValue}) => {
   try {
     const response = await api.get(`tv/popular?language=en-US&page=${page}`)
     return response.data;

@@ -1,8 +1,6 @@
 export const ROUTES = {
   HOME: '/',
-  MOVIES: '/movies',
-  MOVIES_DETAIL: '/:category/:id',
-  TV: '/tv',
+  MOVIES_DETAIL: '/:category/:i',
   NOT_FOUND: '*',
-  NEW_AND_POPULAR: '/new-and-popular'
+  CATEGORIES: '/categories/:type'
 } as const

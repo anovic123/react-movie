@@ -7,16 +7,16 @@ export const navMenu = [
   {
     id: 355,
     title: 'TV Shows',
-    path: '/tv',
+    path: 'categories/tv',
   },
   {
     id: 897,
     title: 'Movies',
-    path: '/movies',
+    path: 'categories/movies',
   },
   {
     id: 351,
     title: 'New & Popular',
-    path: '/new-and-popular',
+    path: 'categories/new-and-popular',
   },
 ];

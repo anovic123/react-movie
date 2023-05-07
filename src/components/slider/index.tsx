@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { v1 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { SkeletonSlider } from './skeleton-slider';
 
@@ -24,9 +25,13 @@ interface TvSliderProps {
 export const Slider: FC<TvSliderProps> = ({ data, loading, type }) => {
   const navigate = useNavigate();
 
-  const sliderImages = data?.map((el) => (
+  // @ts-ignore
+  const filteredData = data?.filter((d) => d.backdrop_path !== null);
+
+  const sliderImages = filteredData?.map((el: Result | MovieTypeResult) => (
     <SwiperSlide className={s.tvSliderItem} key={el.id}>
-      <img
+      <LazyLoadImage
+        effect="blur"
         src={`${imageUrl}${el?.backdrop_path}`}
         className={s.tvSliderImg}
         onClick={() => navigate(`/${type}/${el?.id}`)}

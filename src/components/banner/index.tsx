@@ -44,8 +44,8 @@ export const Banner: FC<BannerProps> = ({}) => {
   }, [randomMovie?.id]);
 
   const bannerText = !isTablet
-    ? randomMovie?.overview.length > 400
-      ? randomMovie?.overview.slice(0, 400) + '...'
+    ? randomMovie?.overview.length > 270
+      ? randomMovie?.overview.slice(0, 270) + '...'
       : randomMovie?.overview
     : randomMovie?.overview.length > 150
     ? randomMovie?.overview.slice(0, 150) + '...'

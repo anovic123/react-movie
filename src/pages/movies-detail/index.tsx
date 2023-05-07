@@ -90,11 +90,11 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
               {detailsData?.vote_average?.toFixed(2)}
             </div>
           </div>
-          <div className={s.detailsRating}>
+          {/* <div className={s.detailsRating}>
             {detailsData?.vote_average && (
               <Rating rating={detailsData?.vote_average} setRating={setRating} />
             )}
-          </div>
+          </div> */}
 
           <div className={s.detailsContentContainer}>
             {detailsData?.genres &&
