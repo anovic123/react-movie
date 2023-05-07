@@ -3,13 +3,15 @@ import moviesSlice from './slice/movies';
 import videosSlice from './slice/videos';
 import detailsSlice from './slice/details';
 import tvSlice from './slice/tv';
+import actorsSlice  from './slice/actors';
 
 const store = configureStore({
   reducer: {
     movies: moviesSlice,
     videos: videosSlice,
     details: detailsSlice,
-    tv: tvSlice
+    tv: tvSlice,
+    actor: actorsSlice
   },
 });
 

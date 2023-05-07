@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
@@ -18,6 +18,8 @@ interface CastsProps {
 export const Casts: FC<CastsProps> = ({ id }) => {
   const dispatch = useAppDispatch();
 
+  const navigate = useNavigate();
+
   const { creditsData } = useAppSelector((state) => state.details);
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export const Casts: FC<CastsProps> = ({ id }) => {
           const pureImagePath = `url(${PureCast})`;
 
           return (
-            <Link key={id} to="#" className={s.castItem}>
+            <div key={id} onClick={() => navigate(`/actor/${id}`)} className={s.castItem}>
               <div
                 className={s.castItemImage}
                 style={{
@@ -42,7 +44,7 @@ export const Casts: FC<CastsProps> = ({ id }) => {
               />
               <div className={s.castItemName}>{name}</div>
               <div className={s.castItemCharacter}>{character}</div>
-            </Link>
+            </div>
           );
         })}
       </div>

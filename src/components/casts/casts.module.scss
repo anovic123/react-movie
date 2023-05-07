@@ -9,13 +9,18 @@
     column-gap: 1.25rem;
     flex-wrap: wrap;
 
-    @media (max-width: 850px) {
+    @media (max-width: 53.125rem) {
       justify-content: center;
     }
   }
   &Item {
     text-align: center;
     width: 10.75rem;
+    cursor: pointer;
+    transition: color 0.3s ease 0s;
+    &:hover {
+      color: red;
+    }
     &Image {
       border-radius: 50%;
       width: 6.25rem;

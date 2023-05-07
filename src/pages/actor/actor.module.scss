@@ -1,0 +1,42 @@
+@use '../../styles/' as *;
+
+.actor {
+  padding-top: 5rem;
+  &Container {
+    @include container;
+  }
+  &Top {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    margin-bottom: 1.25rem;
+
+    @media (max-width: 40.625rem) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    img {
+      width: 16.875rem;
+      height: 25.1875rem;
+      border-radius: .625rem;
+    }
+  }
+  &Title {
+    font-size: 1.875rem;
+    margin-bottom: .375rem;
+  }
+  &Text {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  &Movies {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.875rem;
+    margin-bottom: 1.25rem;
+  }
+}

@@ -26,10 +26,12 @@ export const Card: FC<CardProps> = ({ id, poster, title, rating, type }) => {
           effect="black-and-white"
         />
         <div className={s.cardRating}>
-          <CircleRating rating={rating} />
+          <CircleRating rating={Math.round(rating)} />
         </div>
       </div>
-      <div className={s.cardTitle}>{title}</div>
+      <div className={s.cardTitle} onClick={() => navigate(`/${type}/${id}`)}>
+        {title.length > 20 ? title.slice(0, 20) + '...' : title}
+      </div>
     </article>
   );
 };
