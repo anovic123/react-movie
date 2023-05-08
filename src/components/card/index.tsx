@@ -32,7 +32,7 @@ export const Card: FC<CardProps> = ({ id, poster, title, rating, type }) => {
         )}
       </div>
       <div className={s.cardTitle} onClick={() => navigate(`/${type}/${id}`)}>
-        {title.length > 20 ? title.slice(0, 20) + '...' : title}
+        {title?.length > 20 ? title?.slice(0, 20) + '...' : title}
       </div>
     </article>
   );
