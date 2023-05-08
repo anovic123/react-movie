@@ -21,6 +21,7 @@ interface CategoriesPageProps {}
 export const CategoriesPage: FC<CategoriesPageProps> = ({}) => {
   const navigate = useNavigate();
   const { type } = useParams();
+  console.log('🚀 ~ file: index.tsx:24 ~ type:', type);
 
   const dispatch = useAppDispatch();
 
@@ -117,7 +118,7 @@ export const CategoriesPage: FC<CategoriesPageProps> = ({}) => {
 
   const skeletons = [...new Array(10)].map((_) => <SkeletonCard key={v1()} />);
 
-  const typeLink = type === 'movies' || type === 'new-and-popular' ? 'movies' : 'tv';
+  const typeLink = type === 'movies' || type === 'new-and-popular' ? 'movie' : 'tv';
 
   const cards = data?.results?.map((res: any) => {
     const posterUrlPath = `${imageUrl}${res.backdrop_path}`;
