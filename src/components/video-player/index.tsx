@@ -5,15 +5,20 @@ import { AiFillPlayCircle, AiFillPauseCircle } from 'react-icons/ai';
 import s from './video-player.module.scss';
 
 interface VideoPlayerProps {
+  isActive: boolean;
   url: string;
 }
 
-export const VideoPlayer: FC<VideoPlayerProps> = ({ url }) => {
+export const VideoPlayer: FC<VideoPlayerProps> = ({ url, isActive }) => {
   const [playing, setPlaying] = useState<boolean>(false);
   const [volume, setVolume] = useState<number>(0.8);
   const [played, setPlayed] = useState<number>(0);
   const [seeking, setSeeking] = useState<boolean>(false);
   const playerRef = useRef<ReactPlayer>(null);
+
+  if (playing && !isActive) {
+    setPlaying(false);
+  }
 
   const handlePlayPause = () => {
     setPlaying(!playing);

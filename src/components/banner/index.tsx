@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useState, lazy, Suspense } from 'react';
 import { AiFillPlayCircle, AiFillInfoCircle } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 
@@ -8,13 +8,15 @@ import { setRandomMovie } from '../../store/slice/movies';
 import { getMovies } from '../../store/thunks/movies';
 import { getVideos } from '../../store/thunks/videos';
 
-import { Modal, Button } from '../';
+import { Button } from '../';
 
 import { imageUrl } from '../../utils/constants';
 
 import { useMediaQuery } from '../../hooks/use-media-query';
 
 import s from './banner.module.scss';
+
+const Modal = lazy(() => import('../modal').then((module) => ({ default: module.Modal })));
 
 interface BannerProps {}
 
@@ -51,6 +53,12 @@ export const Banner: FC<BannerProps> = ({}) => {
     ? randomMovie?.overview?.slice(0, 150) + '...'
     : randomMovie?.overview;
 
+  const VideoModal = () => (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Modal data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />
+    </Suspense>
+  );
+
   return (
     <>
       <div
@@ -66,9 +74,9 @@ export const Banner: FC<BannerProps> = ({}) => {
             <div className={s.bannerContentActions}>
               {videosData && (
                 <Button
-                  onClick={() => setActiveModal(true)}
                   variant="border"
                   startIcon={<AiFillPlayCircle />}
+                  onClick={() => setActiveModal(true)}
                 >
                   Play
                 </Button>
@@ -85,9 +93,7 @@ export const Banner: FC<BannerProps> = ({}) => {
         </div>
         <div className={s.bannerBlur} />
       </div>
-      {videosData && (
-        <Modal data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />
-      )}
+      {videosData && activeModal && <VideoModal />}
     </>
   );
 };

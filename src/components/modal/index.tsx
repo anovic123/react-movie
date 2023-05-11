@@ -29,6 +29,7 @@ export const Modal: FC<ModalProps> = ({ data, activeModal, setActiveModal }) => 
           X
         </button>
         <VideoPlayer
+          isActive={activeModal}
           url={data?.key ? `${videoUrlPath}${data?.key}` : `${videoUrlPath}Bb87s3EfM1s`}
         />
       </div>
