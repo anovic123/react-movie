@@ -44,6 +44,7 @@ export const MovieSlider: FC<MovieSliderProps> = ({ title, data, loading, type }
         onClick={() => navigate(`/${type}/${movie.id}`)}
         src={`${imageUrl}${movie?.poster_path}`}
         beforeLoad={() => setImageLoaded(true)}
+        alt={movie?.name || movie?.title}
       />
       {imageLoaded && <CircleRating className={s.movieSliderRating} rating={movie?.vote_average} />}
     </SwiperSlide>

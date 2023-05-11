@@ -23,6 +23,13 @@ interface BannerProps {}
 export const Banner: FC<BannerProps> = ({}) => {
   const [activeModal, setActiveModal] = useState<boolean>(false);
 
+  useEffect(() => {
+    activeModal
+      ? (window.scrollTo({ top: 0, behavior: 'smooth' }),
+        (document.body.style.overflowY = 'hidden'))
+      : (document.body.style.overflowY = 'auto');
+  }, [activeModal]);
+
   const isTablet = useMediaQuery(768);
 
   const dispatch = useAppDispatch();

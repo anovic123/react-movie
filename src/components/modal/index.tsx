@@ -13,13 +13,7 @@ interface ModalProps {
 }
 
 export const Modal: FC<ModalProps> = ({ data, activeModal, setActiveModal }) => {
-  useEffect(() => {
-    activeModal
-      ? (window.scrollTo({ top: 0, behavior: 'smooth' }),
-        (document.body.style.overflowY = 'hidden'))
-      : (document.body.style.overflowY = 'auto');
-  }, [activeModal]);
-
+  
   const videoUrlPath = 'https://www.youtube.com/watch?v=';
 
   return (
