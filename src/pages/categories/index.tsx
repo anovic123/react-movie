@@ -21,7 +21,6 @@ interface CategoriesPageProps {}
 export const CategoriesPage: FC<CategoriesPageProps> = ({}) => {
   const navigate = useNavigate();
   const { type } = useParams();
-  console.log('🚀 ~ file: index.tsx:24 ~ type:', type);
 
   const dispatch = useAppDispatch();
 
@@ -128,7 +127,7 @@ export const CategoriesPage: FC<CategoriesPageProps> = ({}) => {
         key={res.id}
         id={res.id}
         poster={res.backdrop_path === null ? PureImg : posterUrlPath}
-        title={res.name}
+        title={res.name || res.title}
         rating={res.vote_average}
         type={typeLink}
       />
