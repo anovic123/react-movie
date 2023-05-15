@@ -116,4 +116,7 @@ export interface DetailsTypeSlice {
   detailsData: DetailsType | null;
   creditsData: CreditsType;
   reviewsData: ReviewsType;
+  detailsDataLoading: boolean;
+  creditsDataLoading: boolean;
+  reviewsDataLoading: boolean;
 }

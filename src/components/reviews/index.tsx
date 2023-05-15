@@ -18,7 +18,7 @@ interface ReviewsProps {
   currentPage: number;
   totalPages: number;
   data: ResultViews[];
-  handleLoadMore: any;
+  handleLoadMore: () => void;
 }
 
 export const Reviews: FC<ReviewsProps> = ({ currentPage, totalPages, data, handleLoadMore }) => {

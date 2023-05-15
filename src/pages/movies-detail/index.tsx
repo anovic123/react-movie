@@ -4,15 +4,16 @@ import { AiFillStar, AiFillPlayCircle } from 'react-icons/ai';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
-import { getDetails, getReviews, postMovie } from '../../store/thunks/details';
+import { getDetails, getReviews } from '../../store/thunks/details';
 import { getVideos } from '../../store/thunks/videos';
 
-import { Casts, Button, Modal, Reviews, Rating } from '../../components';
+import { Casts, Button, Modal, Reviews } from '../../components';
 
 import { imageUrl } from '../../utils/constants';
 import { convertDuration } from '../../utils/convertDuration';
 
 import s from './movies-detail.module.scss';
+import { Skeleton } from './skeleton';
 
 interface MoviesDetailPageProps {}
 
@@ -21,10 +22,9 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
   const dispatch = useAppDispatch();
 
   const [activeModal, setActiveModal] = useState<boolean>(false);
-  const [rating, setRating] = useState<number>(0);
 
   const { videosData } = useAppSelector((state) => state.videos);
-  const { detailsData, reviewsData } = useAppSelector((state) => state.details);
+  const { detailsData, reviewsData, detailsDataLoading } = useAppSelector((state) => state.details);
 
   useEffect(() => {
     if (!id) {
@@ -42,13 +42,6 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
     dispatch(getReviews({ id, type: category || 'movie', page: reviewsData.page + 1 }));
   };
 
-  // const handleVote = () => {
-  //   if (!id) {
-  //     return;
-  //   }
-  //   dispatch(postMovie({ id, type: category || 'movie', params: rating }));
-  // };
-
   return (
     <section className={s.details}>
       <div className={s.detailsImageContainer}>
@@ -63,59 +56,60 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
         <div className={s.detailsImageBlur}></div>
       </div>
       <div className={s.detailsContainer}>
-        <div className={s.detailsPoster}>
-          <img
-            className={s.detailsPosterImg}
-            src={`${imageUrl}${detailsData?.poster_path}`}
-            alt={detailsData?.title}
-          />
-        </div>
-        <div className={s.detailsContent}>
-          <h1 className={s.detailsContentTitle}>
-            {detailsData?.title || detailsData?.original_name}
-          </h1>
-          <span className={s.detailsContentTagline}>{detailsData?.tagline}</span>
-          <p className={s.detailsContentDescription}>{detailsData?.overview}</p>
-          <div className={s.detailsContentContainer}>
-            {detailsData?.runtime && (
-              <div className={s.detailsContentDuration}>
-                {convertDuration(detailsData?.runtime)}
-              </div>
-            )}
-            <div
-              className={s.detailsContentRating}
-              style={{ color: detailsData && detailsData?.vote_average > 6 ? 'green' : 'red' }}
-            >
-              <AiFillStar />
-              {detailsData?.vote_average?.toFixed(2)}
+        {!detailsDataLoading ? (
+          <>
+            <div className={s.detailsPoster}>
+              <img
+                className={s.detailsPosterImg}
+                src={`${imageUrl}${detailsData?.poster_path}`}
+                alt={detailsData?.title}
+              />
             </div>
-          </div>
-          {/* <div className={s.detailsRating}>
-            {detailsData?.vote_average && (
-              <Rating rating={detailsData?.vote_average} setRating={setRating} />
-            )}
-          </div> */}
-
-          <div className={s.detailsContentContainer}>
-            {detailsData?.genres &&
-              detailsData?.genres.map((genre) => (
-                <div key={genre?.id} className={s.detailsContentGenre}>
-                  {genre?.name}
+            <div className={s.detailsContent}>
+              <h1 className={s.detailsContentTitle}>
+                {detailsData?.title || detailsData?.original_name}
+              </h1>
+              <span className={s.detailsContentTagline}>{detailsData?.tagline}</span>
+              <p className={s.detailsContentDescription}>{detailsData?.overview}</p>
+              <div className={s.detailsContentContainer}>
+                {detailsData?.runtime && (
+                  <div className={s.detailsContentDuration}>
+                    {convertDuration(detailsData?.runtime)}
+                  </div>
+                )}
+                <div
+                  className={s.detailsContentRating}
+                  style={{ color: detailsData && detailsData?.vote_average > 6 ? 'green' : 'red' }}
+                >
+                  <AiFillStar />
+                  {detailsData?.vote_average?.toFixed(2)}
                 </div>
-              ))}
-          </div>
+              </div>
 
-          {videosData && (
-            <Button
-              onClick={() => setActiveModal(true)}
-              variant="border"
-              startIcon={<AiFillPlayCircle />}
-            >
-              Play
-            </Button>
-          )}
-          {detailsData?.id && <Casts id={detailsData?.id} />}
-        </div>
+              <div className={s.detailsContentContainer}>
+                {detailsData?.genres &&
+                  detailsData?.genres.map((genre) => (
+                    <div key={genre?.id} className={s.detailsContentGenre}>
+                      {genre?.name}
+                    </div>
+                  ))}
+              </div>
+
+              {videosData && (
+                <Button
+                  onClick={() => setActiveModal(true)}
+                  variant="border"
+                  startIcon={<AiFillPlayCircle />}
+                >
+                  Play
+                </Button>
+              )}
+              {detailsData?.id && <Casts id={detailsData?.id} />}
+            </div>
+          </>
+        ) : (
+          <Skeleton id={detailsData?.id} />
+        )}
       </div>
 
       {reviewsData?.results?.length >= 1 && (
@@ -128,6 +122,7 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
           />
         </div>
       )}
+
       {videosData && (
         <Modal data={videosData[0]} activeModal={activeModal} setActiveModal={setActiveModal} />
       )}

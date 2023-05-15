@@ -42,4 +42,38 @@
       font-size: 1.0625rem;
     }
   }
+  &Skeleton {
+    display: flex;
+    column-gap: 1.25rem;
+    flex-wrap: wrap;
+
+    @media (max-width: 53.125rem) {
+      justify-content: center;
+    }
+  }
+}
+
+.skeleton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 10.75rem;
+  &Circle {
+    width: 6.25rem;
+    height: 6.25rem;
+    border-radius: 50%;
+    margin-bottom: .9375rem;
+  }
+  &Title {
+    width: 100%;
+    height: 1.25rem;
+    border-radius: 0.625rem;
+    margin-bottom: 0.625rem;
+  }
+  &Subtitle {
+    width: 75%;
+    height: 1.25rem;
+    border-radius: 0.625rem;
+  }
 }
