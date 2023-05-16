@@ -7,9 +7,23 @@
   width: 100%;
   height: 100%;
   overflow: auto;
+  opacity: 0;
+  visibility: hidden;
   background-color: rgba(0, 0, 0, 0.9);
   @media (max-width: 48rem) {
     padding-top: 6.25rem;
+  }
+  &Layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
+    opacity: 0;
+    transition: opacity 400ms;
   }
   &Container {
     position: relative;
@@ -44,4 +58,8 @@
       background: rgb(182, 3, 3);
     }
   }
+}
+.visible {
+  opacity: 1;
+  visibility: visible;
 }

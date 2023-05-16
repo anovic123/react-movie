@@ -17,7 +17,9 @@ export const Modal: FC<ModalProps> = ({ data, activeModal, setActiveModal }) => 
   const videoUrlPath = 'https://www.youtube.com/watch?v=';
 
   return (
-    <div className={s.modal} style={{ display: activeModal ? 'block' : 'none' }}>
+    <div className={`${s.modal} ${activeModal ? s.visible : ''}`}
+    >
+      <div className={s.modalLayer} onClick={() => setActiveModal(false)} />
       <div className={s.modalContainer}>
         <button className={s.modalButton} onClick={() => setActiveModal(false)}>
           X
