@@ -44,7 +44,7 @@ export const HomePage: FC<HomePageProps> = ({}) => {
   return (
     <section className={s.home}>
       <Helmet>
-        <title>Home</title>
+        <title>React Movie</title>
         <meta name="description" content="Browse and discover popular movies and TV shows" />
       </Helmet>
       <div className={s.homeBanner}>
