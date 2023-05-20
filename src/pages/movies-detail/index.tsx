@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AiFillStar, AiFillPlayCircle } from 'react-icons/ai';
+import { Helmet } from 'react-helmet';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
@@ -44,6 +45,10 @@ export const MoviesDetailPage: FC<MoviesDetailPageProps> = ({}) => {
 
   return (
     <section className={s.details}>
+      <Helmet>
+        <title>{detailsData?.title || detailsData?.original_name}</title>
+        <meta name="description" content={detailsData?.overview} />
+      </Helmet>
       <div className={s.detailsImageContainer}>
         <div
           className={s.detailsImage}

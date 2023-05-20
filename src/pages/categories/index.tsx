@@ -1,6 +1,7 @@
 import { FC, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { v1 } from 'uuid';
+import { Helmet } from 'react-helmet';
 
 import { Card, Pagination, Slider } from '../../components';
 import { SkeletonCard } from '../../components/card/skeleton-card';
@@ -138,6 +139,15 @@ export const CategoriesPage: FC<CategoriesPageProps> = ({}) => {
 
   return (
     <section className={s.tv}>
+      <Helmet>
+        <title>
+          {type === 'tv' ? 'TV Shows' : type === 'movies' ? 'Movies' : 'New and Popular'}
+        </title>
+        <meta
+          name="description"
+          content={`Browse ${type === 'tv' ? 'TV Shows' : 'Movies'} in different categories`}
+        />
+      </Helmet>
       <Slider data={sliderContent?.slice(0, 10)} loading={loading} type={typeLink} />
       <div className={s.tvContainer}>
         <div className={s.tvList}>{loading ? skeletons : cards?.slice(0, 10)}</div>

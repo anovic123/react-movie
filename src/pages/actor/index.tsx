@@ -1,5 +1,6 @@
 import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { Card } from '../../components';
 import { ActorDetails } from '../../components/actor-details';
@@ -43,6 +44,10 @@ export const ActorPage: FC<ActorPageProps> = () => {
 
   return (
     <section className={s.actor}>
+      <Helmet>
+        <title>{name}</title>
+        <meta name="description" content={biography} />
+      </Helmet>
       <div className={s.actorContainer}>
         <div className={s.actorTop}>
           <img src={`${imageUrl}/${profile_path}`} alt={name} />

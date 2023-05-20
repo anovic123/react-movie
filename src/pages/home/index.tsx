@@ -1,4 +1,5 @@
 import { FC, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 
 import { Banner, MovieSlider } from '../../components';
 
@@ -42,6 +43,10 @@ export const HomePage: FC<HomePageProps> = ({}) => {
 
   return (
     <section className={s.home}>
+      <Helmet>
+        <title>Home</title>
+        <meta name="description" content="Browse and discover popular movies and TV shows" />
+      </Helmet>
       <div className={s.homeBanner}>
         <Banner />
       </div>
@@ -52,12 +57,7 @@ export const HomePage: FC<HomePageProps> = ({}) => {
         loading={netflixMoviesLoading}
       />
       <MovieSlider title="Horror" type="movie" data={horrorMovies} loading={horrorMoviesLoading} />
-      <MovieSlider
-        title="Comedy"
-        type="movie"
-        data={comedyMovies}
-        loading={comedyMoviesLoading}
-      />
+      <MovieSlider title="Comedy" type="movie" data={comedyMovies} loading={comedyMoviesLoading} />
       <MovieSlider
         title="Romance"
         type="movie"
