@@ -1,5 +1,5 @@
 import { FC, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 import { useMediaQuery } from '../../hooks/use-media-query';
 
@@ -71,13 +71,14 @@ export const Header: FC<HeaderProps> = ({}) => {
         >
           {navMenu.map((el) => (
             <li key={el.id} className={`${isMobile ? s.burgerMenuListLi : s.headerNavLi}`}>
-              <Link
+              <NavLink
                 to={el.path}
                 onClick={() => setActiveLink(el.path)}
                 className={`${el.path === activeLink ? s.activeLink : ''}`}
+                style={{ color: `${isMobile && el.path === activeLink ? 'red' : ''}` }}
               >
                 {el.title}
-              </Link>
+              </NavLink>
             </li>
           ))}
         </ul>
