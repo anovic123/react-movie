@@ -3,9 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 
 import { Layout } from './layout';
 
-import { HomePage, MoviesDetailPage, NotFoundPagePage } from './pages';
-import { ActorPage } from './pages/actor';
-import { CategoriesPage } from './pages/categories';
+import { HomePage, MoviesDetailPage, NotFoundPage, ActorPage, CategoriesPage } from './pages';
 
 import { ROUTES } from './utils/routes';
 
@@ -18,7 +16,7 @@ export const App: FC<AppProps> = ({}) => {
         <Route element={<Layout />}>
           <Route path={ROUTES.HOME} element={<HomePage />} />
           <Route path={ROUTES.MOVIES_DETAIL} element={<MoviesDetailPage />} />
-          <Route path={ROUTES.NOT_FOUND} element={<NotFoundPagePage />} />
+          <Route path={ROUTES.NOT_FOUND} element={<NotFoundPage />} />
           <Route path={ROUTES.CATEGORIES} element={<CategoriesPage />} />
           <Route path={ROUTES.ACTORS} element={<ActorPage />} />
         </Route>

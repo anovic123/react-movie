@@ -1,8 +1,7 @@
 import { FC } from 'react';
 import { v1 } from 'uuid';
 
-import { Text } from '../text';
-import { Button } from '../ui/button';
+import { Text, Button } from '../';
 
 import { ResultViews } from '../../common/types/details';
 
@@ -12,7 +11,6 @@ import { checkUrl } from '../../utils/checkUrl';
 import PureReviews from '../../assets/pure-reviews.png';
 
 import s from './reviews.module.scss';
-
 
 interface ReviewsProps {
   currentPage: number;

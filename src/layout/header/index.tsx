@@ -5,8 +5,9 @@ import { useMediaQuery } from '../../hooks/use-media-query';
 
 import { navMenu } from '../../common/mocks/navigate';
 
-import s from './header.module.scss';
 import { ROUTES } from '../../utils/routes';
+
+import s from './header.module.scss';
 
 interface HeaderProps {}
 

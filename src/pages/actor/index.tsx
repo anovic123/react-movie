@@ -2,8 +2,7 @@ import { FC, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 
-import { Card } from '../../components';
-import { ActorDetails } from '../../components/actor-details';
+import { Card, ActorDetails } from '../../components';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 

@@ -1,5 +1,5 @@
 import { FC, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 
@@ -38,7 +38,7 @@ export const Casts: FC<CastsProps> = ({ id }) => {
 
   return (
     <div className={s.cast}>
-      <h2 className={s.castHeading}>{creditsData?.cast && 'Cast'}</h2>
+      <h2 className={s.castHeading}>{creditsData?.cast?.length > 1 && 'Cast'}</h2>
       <div className={s.castList}>
         {!creditsDataLoading ? (
           creditsData?.cast?.slice(0, 4).map(({ id, name, character, profile_path }) => {

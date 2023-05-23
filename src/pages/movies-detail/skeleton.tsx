@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { AiFillPlayCircle } from 'react-icons/ai';
+
 import { Button, Casts } from '../../components';
 
 import s from './movies-detail.module.scss';

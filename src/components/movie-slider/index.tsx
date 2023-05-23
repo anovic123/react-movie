@@ -6,8 +6,7 @@ import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-import { SkeletonSlider } from '../';
-import { CircleRating } from '../circle-rating';
+import { SkeletonSlider, CircleRating } from '../';
 
 import { MovieTypeResult } from '../../common/types/movies';
 

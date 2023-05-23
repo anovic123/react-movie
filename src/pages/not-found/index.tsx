@@ -7,7 +7,7 @@ import s from './not-found.module.scss';
 
 interface NotFoundPageProps {}
 
-export const NotFoundPagePage: FC<NotFoundPageProps> = ({}) => {
+export const NotFoundPage: FC<NotFoundPageProps> = ({}) => {
   return (
     <section className={s.notFound}>
       <Helmet>

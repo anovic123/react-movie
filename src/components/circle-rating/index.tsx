@@ -5,8 +5,8 @@ import './circle-rating.scss';
 import 'react-circular-progressbar/dist/styles.css';
 
 interface CircleRatingProps {
-  rating: any;
-  className?: any;
+  rating: number;
+  className?: string;
 }
 
 export const CircleRating: FC<CircleRatingProps> = ({ rating, className }) => {
@@ -15,7 +15,7 @@ export const CircleRating: FC<CircleRatingProps> = ({ rating, className }) => {
       <CircularProgressbar
         value={rating}
         maxValue={10}
-        text={rating}
+        text={String(rating)}
         className={className}
         styles={buildStyles({
           pathColor: rating < 5 ? 'red' : rating < 7 ? 'orange' : 'green',

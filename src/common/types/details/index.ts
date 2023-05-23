@@ -110,8 +110,6 @@ export interface AuthorDetails {
   rating?: number
 }
 
-
-
 export interface DetailsTypeSlice {
   detailsData: DetailsType | null;
   creditsData: CreditsType;
