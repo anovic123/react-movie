@@ -32,7 +32,6 @@ export const Skeleton: FC<SkeletonProps> = ({ id }) => {
         <Button variant="border" disabled startIcon={<AiFillPlayCircle />}>
           Play
         </Button>
-        {id && <Casts id={id} />}
       </div>
     </>
   );
